@@ -1,0 +1,462 @@
+@import 'variables', 'components';
+
+header {
+    font-family: serif;
+    color: #20343b;
+    font-size: 18px;
+}
+
+.input-graph-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 95%;
+}
+
+// Анимации
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+.graph-figure {
+  animation: fadeIn 0.5s ease-out;
+  
+  &.fade-out {
+    animation: fadeOut 0.5s ease-in;
+  }
+}
+
+// Базовые стили
+header {
+  font-family: serif;
+  color: #20343b;
+  font-size: $font-size-lg;
+}
+
+// Секция ввода и графика
+.input-graph-section {
+  background: $background-color;
+  padding: $spacing-xxl;
+  border-radius: $border-radius;
+  @include box-shadow;
+  margin: $spacing-xxxl auto;
+  max-width: 95%;
+
+  .input-graph-container {
+    @include flex-between;
+    gap: $spacing-huge;
+  }
+
+  .form-container {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+  }
+
+  // График
+  .graph-container {
+    flex: 1;
+    min-width: 400px;
+    @include flex-center;
+
+    #graphCanvas {
+      border: 2px solid #202e3b;
+      border-radius: $border-radius-sm;
+      width: 500px;
+      height: 500px;
+      background: #ffffff;
+      box-shadow: 0 4px 10px $shadow-color;
+    }
+  }
+
+  // Форма
+  .form-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 $spacing-lg;
+
+    td {
+      padding: $spacing-sm 0;
+
+      &:first-child {
+        width: 35%;
+        text-align: right;
+        padding-right: 10%;
+        font-weight: 500;
+        color: $text-color;
+      }
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-top: $spacing-md;
+      text-align: center;
+      padding-left: 60%;
+      width: 100%;
+
+      td {
+        padding-left: 0%;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border: 2px solid #dee2e6;
+      border-radius: $border-radius-xs;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      
+      // УБИРАЕМ flex: 1 и добавляем фиксированную ширину
+      flex: 0 0 calc(50% - 4px); // Занимает 50% минус gap, не растягивается
+      box-sizing: border-box;
+      min-width: 60px;
+      justify-content: center;
+
+      &:hover {
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        border-color: $accent-color;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px $shadow-color;
+      }
+
+      &.error {
+        border-color: $error-color;
+        background: linear-gradient(135deg, #fdf2f2, #fadbd8);
+        animation: pulse 0.5s ease-in-out;
+      }
+
+      .r-checkbox:checked + span {
+        font-weight: bold;
+        color: $primary-color;
+      }
+    }
+
+  }
+
+  // Кнопка отправки
+  .submit-btn {
+    flex: 1;
+    margin-left: 35%;
+    padding: $spacing-lg $spacing-xxl;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    font-size: $font-size-md;
+    font-weight: bold;
+    @include transition;
+    @include gradient-bg($primary-color, #2ecc71);
+    color: white;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    min-width: 150px;
+
+    &:hover:not(.disabled) {
+      @include gradient-bg(#229954, $primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+    }
+
+    &:active:not(.disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled,
+    &.disabled {
+      @include gradient-bg(#bdc3c7, #95a5a6);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.7;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+  .clear-btn {
+    padding: $spacing-lg $spacing-xxl;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    font-size: $font-size-md;
+    font-weight: bold;
+    @include transition;
+    @include gradient-bg(#e74c3c, #c0392b);
+    color: white;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    min-width: 150px;
+    max-width: 200px;
+    margin: 0; // Убираем любые маргины
+
+    &:hover:not(:disabled) {
+      @include gradient-bg(#c0392b, #e74c3c);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      @include gradient-bg(#bdc3c7, #95a5a6);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.7;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// Секция результатов
+.results-section {
+  background: $background-color;
+  padding: $spacing-xxl;
+  border-radius: $border-radius;
+  @include box-shadow;
+  margin: $spacing-xxxl auto;
+  max-width: 90%;
+
+  .table-container {
+    overflow-x: auto;
+    margin-top: $spacing-xl;
+    border-radius: $border-radius-sm;
+    border: 1px solid #e9ecef;
+    max-height: 400px;
+    overflow-y: auto;
+    @include scrollbar-styles;
+  }
+
+  // Таблица
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: $font-size-xl;
+    text-align: center;
+    border: 2px solid $border-color;
+    min-width: 600px;
+
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    th {
+      @include gradient-bg(#75cbaa, #6ac7ad);
+      color: white;
+      padding: $spacing-lg $spacing-lg;
+      font-weight: 600;
+      position: sticky;
+      border: 1px solid $border-color;
+      top: 0;
+      font-weight: inherit;
+      letter-spacing: inherit;
+
+      // Заголовки колонок
+      .column-name & {
+        text-align: center;
+        font-size: $font-size-xxl;
+      }
+    }
+
+    td {
+      padding: $spacing-md $spacing-sm;
+      border-bottom: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+      @include transition(background-color);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    tbody tr {
+      &:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      &:hover {
+        background-color: #e3f2fd;
+      }
+    }
+  }
+
+  // Стили результатов
+  .result-hit {
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  .result-miss {
+    color: $error-color;
+    font-weight: bold;
+  }
+
+  .result-error {
+    color: $warning-color;
+    font-style: italic;
+  }
+}
+
+// Поля ввода
+.form-input {
+  width: 100%;
+  padding: 5% 5%;
+  border: 2px solid #bdc3c7;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  @include transition;
+  background: #ffffff;
+  box-shadow: 0 2px 5px $shadow-color;
+
+  &:focus {
+    border-color: $accent-color;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &:hover {
+    border-color: #95a5a6;
+  }
+
+  &.error {
+    border-color: $error-color;
+    background-color: #fdf2f2;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+    animation: shake 0.5s ease-in-out;
+  }
+
+  // Select
+  select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right $spacing-lg center;
+    padding-right: 40px;
+  }
+}
+
+// Сообщения об ошибках
+.error-message {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+// Наследование (дополнительно)
+.input-graph-section,
+.results-section,
+.form-input,
+.submit-btn,
+.results-table {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+body * {
+  box-sizing: inherit;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .input-graph-section {
+    .input-graph-container {
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+
+    .form-container,
+    .graph-container {
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    #graphCanvas {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+    }
+
+    .checkbox-label {
+      flex: 1 0 40%;
+    }
+
+    .submit-btn {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .form-table .form-buttons {
+      padding-left: 0;
+    }
+  }
+
+  .results-section {
+    max-width: 95%;
+    
+    .results-table {
+      font-size: $font-size-md;
+      min-width: 500px;
+      
+      th {
+        font-size: $font-size-sm;
+        padding: $spacing-md $spacing-sm;
+      }
+      
+      td {
+        font-size: $font-size-sm;
+        padding: $spacing-sm $spacing-xs;
+      }
+    }
+  }
+}

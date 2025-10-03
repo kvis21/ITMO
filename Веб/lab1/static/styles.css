@@ -1,0 +1,389 @@
+header {
+    font-family: serif;
+    color: #20343b;
+    font-size: 18px;
+}
+
+.input-graph-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 95%;
+}
+
+
+.input-graph-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.form-container {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+}
+
+/* график */
+.graph-container {
+    flex: 1;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#graphCanvas {
+    border: 2px solid #202e3b;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+.form-table td {
+    padding: 8px 0;
+}
+
+.form-table td:first-child {
+    width: 35%;
+    text-align: right;
+    padding-right: 5%;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+    background: #e3f2fd;
+    border-color: #3498db;
+}
+
+.r-checkbox:checked + span {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.form-table .form-buttons {
+    text-align: left;
+    padding-left: 200%;
+}
+
+.form-table .form-buttons td {
+    padding-left: 10%;
+}
+
+.submit-btn {
+    flex: 1;
+    margin-left: 35%;
+
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    color: white;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #229954, #27ae60);
+    transform: translateY(-2px);
+}
+
+
+
+.results-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 90%;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    max-height: 400px; 
+    overflow-y: auto; 
+}
+
+/* скролл*/
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #34495e, #2c3e50);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+}
+
+.table-container {
+    scrollbar-width: thin;
+    scrollbar-color: #34495e #f1f1f1;
+}
+
+/* таблица */
+.results-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+
+.results-table th {
+    background: linear-gradient(45deg, #75cbaa, #6ac7ad);
+    color: white;
+    padding: 18px 15px; 
+    font-weight: 600;
+    position: sticky;
+    border: 1px solid #34495e;
+    top: 0;
+}
+
+.results-table th {
+    font-weight: inherit; 
+    letter-spacing: inherit; 
+}
+
+.results-table tr.column-name th{
+    text-align: center;
+    font-size: 24px;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 22px;
+    text-align: center;
+    border: 2px solid #34495e;
+    min-width: 600px; 
+}
+
+.results-table td {
+    border-bottom: 1px solid #34495e;
+    border-right: 1px solid #34495e;
+}
+
+/* Стили для результатов */
+.result-hit {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.result-miss {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.result-error {
+    color: #e67e22;
+    font-style: italic;
+}
+
+/* поля ввода */
+.form-input {
+    width: 100%;
+    padding: 5% 5%;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-input:hover {
+    border-color: #95a5a6;
+}
+
+/* Стили для поля с ошибкой */
+.form-input.error {
+    border-color: #e74c3c;
+    background-color: #fdf2f2;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* select */
+.form-input select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+/*checkbox*/
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex: 1;
+    min-width: 60px;
+    justify-content: center;
+}
+
+.checkbox-label:hover {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.r-checkbox:checked + span {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.checkbox-label.error {
+    border-color: #e74c3c;
+    background: linear-gradient(135deg, #fdf2f2, #fadbd8);
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* submit */
+.submit-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    margin-left: 35%;
+    min-width: 150px;
+}
+
+.submit-btn:hover:not(.disabled) {
+    background: linear-gradient(135deg, #229954, #27ae60);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.submit-btn:active:not(.disabled) {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+.submit-btn.disabled,
+.submit-btn:disabled {
+    background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+.submit-btn.disabled:hover,
+.submit-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.submit-btn {
+    transition: all 0.3s ease;
+}
+
+/* errors*/
+.error-message {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

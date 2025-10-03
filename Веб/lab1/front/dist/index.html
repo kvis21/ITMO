@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang=ru>
+    <meta charset=utf-8>
+    <title>Лаба №1</title>
+    <script type="module" crossorigin src="/assets/main-BgOYNJM5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-BNOTAJCJ.css">
+
+    <body>
+        <header class="header">
+            <table class="header-table">
+                <tr class="header-fio">
+                    <td>ФИО: </td>
+                    <td>Панченко Антон Дмитриевич</td>
+                </tr> 
+                <tr class="header-group">
+                    <td>Группа:</td>
+                    <td>P3115</td>
+                </tr> 
+                <tr class="header-var">
+                    <td>Вариант: </td>
+                    <td>№467018</td>      
+                </tr> 
+            </table>
+        </header>
+    <main>
+        <section class="input-graph-section">
+            <h2>Проверка попадания точки в область</h2>
+            <div class="input-graph-container">
+                <div class="form-container">
+                    <form id="pointForm" class="point-form">
+                        <table class="form-table">
+                            <tr>
+                                <td><label for="x">Координата X:</label></td>
+                                <td>
+                                    <select id="x" name="x" required class="form-input">
+                                        <option value="">Выберите X</option>
+                                        <option value="-3">-3</option>
+                                        <option value="-2">-2</option>
+                                        <option value="-1">-1</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="y">Координата Y:</label></td>
+                                <td>
+                                    <input type="text" id="y" name="y" placeholder="Введите Y (-5 до 3)" 
+                                        required class="form-input" pattern="^-?\d+(\.\d+)?$">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Радиус R:</label></td>
+                                <td>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="r" value="1" class="r-checkbox"> 1
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="r" value="1.5" class="r-checkbox"> 1.5
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="r" value="2" class="r-checkbox"> 2
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="r" value="2.5" class="r-checkbox"> 2.5
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="r" value="3" class="r-checkbox"> 3
+                                        </label>
+                                    </div>
+                                    <input type="hidden" id="r_value" name="r" value="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="form-buttons">
+                                    <button type="submit" class="submit-btn">Проверить</button>
+                        
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                
+                <div class="graph-container">
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Результаты проверок</h2>
+            <div class="table-container">
+                <table id="resultsTable" class="results-table">
+                    <thead>
+                        <tr class="column-name">
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>R</th>
+                            <th>Результат</th>
+                            <th>Время запроса</th>
+                            <th>Время работы</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Результаты будут добавляться через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    </body>
+
+</html> 
