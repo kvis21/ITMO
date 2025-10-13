@@ -44,14 +44,16 @@ class MandelbrotSet:
         if max_iter is None:
             max_iter = self.max_iter
             
-        z = np.zeros_like(c, dtype=complex)
+        z = np.zeros_like(c, dtype=complex) # z0 = 0
+        # матрица, которая хранит номера итераций, на которых каждая точка убежала
         mandelbrot_set = np.zeros(c.shape, dtype=np.float32)
         
         for i in range(max_iter):
-            mask = np.abs(z) < self.escape_radius
-            z[mask] = z[mask] * z[mask] + c[mask]
-            mandelbrot_set[mask] = i
+            mask = np.abs(z) < self.escape_radius # Проверка |zn| < 2
+            z[mask] = z[mask] * z[mask] + c[mask] # z_{n+1}=z_n^2 + c
+            mandelbrot_set[mask] = i # Запоминаем номер итерации
             
+        # Точки, которые за M итераций не убежали, получают зачение max_iter:
         mandelbrot_set[mandelbrot_set == max_iter - 1] = max_iter
         return mandelbrot_set
     
@@ -60,14 +62,14 @@ class MandelbrotSet:
         if max_iter is None:
             max_iter = self.max_iter
             
-        limits = self.get_limits()
+        limits = self.get_limits() # Вычисояем границы области
         xmin, xmax, ymin, ymax = limits
         
         # Создаем координатную сетку
-        x = np.linspace(xmin, xmax, self.width)
-        y = np.linspace(ymin, ymax, self.height)
-        X, Y = np.meshgrid(x, y)
-        C = X + 1j * Y
+        x = np.linspace(xmin, xmax, self.width) # Вещественная ось
+        y = np.linspace(ymin, ymax, self.height) # Мнимая ось
+        X, Y = np.meshgrid(x, y) # Сетка координат
+        C = X + 1j * Y # Комплексные числа
         
         # Вычисляем множество Мандельброта
         mandelbrot_set = self.mandelbrot_iteration(C, max_iter)
@@ -75,7 +77,7 @@ class MandelbrotSet:
         return mandelbrot_set, limits
     
     def plot_mandelbrot(self, update_sliders=False):
-        """Строит график множества Мандельброта"""
+        """Строит график множества Мандельброта, цветовое кодирование"""
         if self.updating:
             return
             
@@ -89,7 +91,7 @@ class MandelbrotSet:
             if self.image is None:
                 self.image = self.ax.imshow(np.log(mandelbrot_set + 1), 
                                           extent=limits,
-                                          cmap='hot',
+                                          cmap='hot', # Цвветовая схема
                                           origin='lower',
                                           aspect='auto')
                 
