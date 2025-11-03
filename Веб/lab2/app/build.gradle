@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    implementation 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.0.0'
+}
+
+war {
+    archiveFileName = 'app.war'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    exclude 'static/**'
+    exclude '**/static/**'
+    from('src/main/webapp') {
+        into '/'
+    }
+}
