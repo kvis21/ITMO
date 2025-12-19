@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:md="http://xmlns.jcp.org/jsf/composite/org/markdown">
+
+<h:head>
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="css/markdown.css"/>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <h1 class="title">Редактор Markdown</h1>
+        
+        <div class="controls">
+            <h:form id="controlForm" prependId="false">
+                <div class="control-group">
+                    <label>Ориентация:</label>
+                    <h:selectOneRadio id="orientation" value="#{markdownBean.orientation}">
+                        <f:selectItem itemValue="vertical" itemLabel="Вертикальная" />
+                        <f:selectItem itemValue="horizontal" itemLabel="Горизонтальная" />
+                        <f:ajax event="change" 
+                                render=":editorForm :statusPanel" 
+                                execute="@this"
+                                listener="#{markdownBean.updatePreview}"/>
+                    </h:selectOneRadio>
+                </div>
+                
+                <div class="control-group">
+                    <label>Тема:</label>
+                    <h:selectOneRadio id="theme" value="#{markdownBean.codeTheme}">
+                        <f:selectItem itemValue="light" itemLabel="Светлая" />
+                        <f:selectItem itemValue="dark" itemLabel="Тёмная" />
+                        <f:ajax event="change" 
+                                render=":editorForm :statusPanel" 
+                                execute="@this"
+                                listener="#{markdownBean.updatePreview}"/>
+                    </h:selectOneRadio>
+                </div>
+                
+                <div class="control-group">
+                    <h:selectBooleanCheckbox id="links" value="#{markdownBean.openLinksInNewTab}">
+                        <f:ajax event="change" 
+                                render=":editorForm :statusPanel" 
+                                execute="@this"
+                                listener="#{markdownBean.updatePreview}"/>
+                    </h:selectBooleanCheckbox>
+                    <label>Открывать ссылки в новой вкладке</label>
+                </div>
+                
+                <div class="button-group">
+                    <h:commandButton value="Очистить содержимое" 
+                                   action="#{markdownBean.clearContent}"
+                                   styleClass="btn btn-secondary">
+                        <f:ajax execute="@this" 
+                                render=":editorForm :statusPanel" />
+                    </h:commandButton>
+                    
+                    <h:commandButton value="Восстановить пример" 
+                                   action="#{markdownBean.restoreExample}"
+                                   styleClass="btn btn-primary">
+                        <f:ajax execute="@this" 
+                                render=":editorForm :statusPanel" />
+                    </h:commandButton>
+                </div>
+            </h:form>
+        </div>
+        
+        <h:form id="editorForm" prependId="false">
+            <md:markdownEditor 
+                value="#{markdownBean.content}"
+                orientation="#{markdownBean.orientation}"
+                codeTheme="#{markdownBean.codeTheme}"
+                openLinksInNewTab="#{markdownBean.openLinksInNewTab}"
+                styleClass="main-editor" />
+    
+            <h:panelGroup id="statusPanel" layout="block" styleClass="status">
+                <h3>Информация:</h3>
+                <p>Текущая ориентация: <strong>#{markdownBean.orientation}</strong></p>
+                <p>Тема оформления: <strong>#{markdownBean.codeTheme}</strong></p>
+                <p>Ссылки открываются в новой вкладке: 
+                   <strong>#{markdownBean.openLinksInNewTab ? 'Да' : 'Нет'}</strong>
+                </p>
+                <p>Длина содержимого: <strong>#{markdownBean.contentLength}</strong> символов</p>
+                <p>Последнее обновление: <strong>#{markdownBean.lastUpdateTime}</strong></p>
+            </h:panelGroup>
+        </h:form>
+    </div>
+</h:body>
+</html>

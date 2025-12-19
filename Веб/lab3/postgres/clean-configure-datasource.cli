@@ -1,0 +1,28 @@
+# Удаляем существующий DataSource если есть
+try /subsystem=datasources/data-source=PostgresDS:remove
+catch
+
+# Удаляем существующий драйвер если есть
+try /subsystem=datasources/jdbc-driver=postgresql:remove
+catch
+
+# Добавляем драйвер PostgreSQL
+/subsystem=datasources/jdbc-driver=postgresql:add(
+    driver-name=postgresql,
+    driver-module-name=org.postgresql,
+    driver-class-name=org.postgresql.Driver
+)
+
+# Создаем DataSource
+data-source add --name=PostgresDS \
+    --jndi-name=java:app/PostgresDS \
+    --connection-url=jdbc:postgresql://localhost:5432/web3 \
+    --driver-name=postgresql \
+    --user-name=web3 \
+    --password=1111 \
+    --enabled=true \
+    --max-pool-size=20 \
+    --min-pool-size=5
+
+# Тестируем подключение
+/subsystem=datasources/data-source=PostgresDS:test-connection-in-pool

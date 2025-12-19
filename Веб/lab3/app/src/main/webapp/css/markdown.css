@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f7fa;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1.title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+}
+
+.controls {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.button-group {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.status {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.status h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.status p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.status strong {
+    color: #2c3e50;
+}
+
+
+.markdown-editor {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: #f8f9fa;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.markdown-editor.vertical {
+    flex-direction: column;
+}
+
+.markdown-editor.horizontal {
+    flex-direction: row;
+    min-height: 500px;
+}
+
+.editor-section, .preview-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.section-title {
+    margin: 0 0 15px 0;
+    padding: 10px 15px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.editor-section textarea {
+    flex: 1;
+    width: 100%;
+    min-height: 400px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.editor-section textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.preview-section .preview-content {
+    flex: 1;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 20px;
+    overflow-y: auto;
+    background: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+/* тёмная тема */
+.preview-content.dark-theme {
+    background: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+.preview-content.dark-theme h1,
+.preview-content.dark-theme h2,
+.preview-content.dark-theme h3,
+.preview-content.dark-theme h4,
+.preview-content.dark-theme h5,
+.preview-content.dark-theme h6 {
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+.preview-content.dark-theme p {
+    color: #e0e0e0;
+}
+
+.preview-content.dark-theme code {
+    background: #2d3436;
+    color: #fd79a8;
+}
+
+.preview-content.dark-theme pre {
+    background: #2d3436;
+    border-left-color: #0984e3;
+}
+
+.preview-content.dark-theme a {
+    color: #74b9ff;
+}
+
+.preview-content.dark-theme strong {
+    color: #ffffff;
+}
+
+.preview-content.dark-theme em {
+    color: #cccccc;
+}
+
+.preview-content.dark-theme blockquote {
+    background: #2d3436;
+    border-left-color: #ffeaa7;
+    color: #b2bec3;
+}
+
+.preview-content.dark-theme table {
+    border-color: #444;
+}
+
+.preview-content.dark-theme th,
+.preview-content.dark-theme td {
+    border-color: #444;
+}
+
+.preview-content.dark-theme th {
+    background: #2d3436;
+}
+
+.preview-content.dark-theme tr:nth-child(even) {
+    background: #2d3436;
+}
+
+.preview-content.dark-theme hr {
+    border-color: #444;
+}

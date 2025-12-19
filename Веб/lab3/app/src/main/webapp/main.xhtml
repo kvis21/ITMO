@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title>Проверка попадания точки в область</title>
+        <link rel="stylesheet" href="css/main.css"/>
+    
+        <script src="js/graph.js"></script>
+        <script src="js/main.js"></script>
+    </h:head>
+    
+    <h:body>
+        <div class="app-container">
+            <div class="header">
+                <h1>Проверка попадания точки в область</h1>
+                <h:button value="Вернуться на стартовую страницу" outcome="index" 
+                         styleClass="back-button"/>
+            </div>
+            
+            <h:form id="mainForm">
+                <h:inputHidden id="pointsData" value="#{pointBean.pointsJson}" />
+                <div class="content-wrapper">
+                    <div class="input-column">
+                        <h3>Введите координаты точки и радиус:</h3>
+                        
+                        <div class="form-group">
+                            <p:outputLabel for="x" value="Координата X: " styleClass="ui-outputlabel"/>
+                            <p:inputText id="x" value="#{pointBean.x}" required="true"
+                                        requiredMessage="Поле X обязательно для заполнения"
+                                        validatorMessage="X должен быть числом в диапазоне [-5; 5]">
+                                <f:validateDoubleRange minimum="-5" maximum="5"/>
+                                <p:ajax event="keyup" process="@this" update="xMessage"/>
+                                <p:ajax event="blur" process="@this" update="xMessage"/>
+                            </p:inputText>
+                            <p:message for="x" id="xMessage" display="text"/>
+                        </div>
+
+                        <div class="form-group">
+                            <p:outputLabel for="y" value="Координата Y: " styleClass="ui-outputlabel"/>
+                            <p:spinner id="y" value="#{pointBean.y}" required="true"
+                                    requiredMessage="Поле Y обязательно для заполнения"
+                                    step="0.5" stepFactor="0.5"
+                                    validatorMessage="Y должен быть числом в диапазоне [-4; 4] с шагом 0.5">
+                                <f:validateDoubleRange minimum="-4" maximum="4"/>
+                                <p:ajax event="keyup" process="@this" update="yMessage"/>
+                                <p:ajax event="blur" process="@this" update="yMessage"/>
+                            </p:spinner>
+                            <p:message for="y" id="yMessage" display="text"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputText id="rOutput" value="Радиус R: #{pointBean.r}"/>
+                            <h:inputHidden id="r" value="#{pointBean.r}">
+                                <f:validateDoubleRange minimum="2" maximum="5"/>
+                            </h:inputHidden>
+                            <p:slider for="r" value="#{pointBean.r}" 
+                                    minValue="2"
+                                    maxValue="5"
+                                    step="0.25"
+                                    validatorMessage="R должен быть положительным числом в диапазоне [2; 5]">
+                                <f:validateRegex pattern="^-?\d+([\.\,]\d+)?$"/>
+                                <p:ajax event="slideEnd" process="@this r" update="rOutput rMessage" oncomplete="updateGraph()"/>
+                            </p:slider>
+                            <p:message for="r" id="rMessage" display="text"/>
+                        </div>
+                        
+                        <div class="buttons-container">
+                            <p:commandButton value="Проверить" action="#{pointBean.addPoint}" 
+                                        process="@form"
+                                        update="pointsTable pointsData"
+                                        styleClass="ui-button ui-button-primary"
+                                        oncomplete="updateGraph()"/>
+                            
+                            <p:commandButton value="Очистить" action="#{pointBean.clearPoints}" 
+                                        process="@this"
+                                        update="pointsTable pointsData"
+                                        styleClass="ui-button ui-button-danger"
+                                        oncomplete="updateGraph()"/>
+                        </div>
+                    </div>
+                    
+                    <div class="graph-column">
+                        <h3>График области:</h3>
+                        <div class="graph-container">
+                            <p:remoteCommand name="addPointFromGraph" 
+                                            action="#{pointBean.addPointFromGraph}"
+                                            process="@this r"
+                                            update="pointsTable pointsData"
+                                            oncomplete="updateGraph();"/>
+                            
+                            <canvas id="graphCanvas"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="results-section">
+                    <h3>Результаты проверки:</h3>
+                    <p:dataTable id="pointsTable" value="#{pointBean.points}" var="point" 
+                               styleClass="points-table" paginator="true" rows="10">
+                        <p:column headerText="X">
+                            <h:outputText value="#{point.x}"/>
+                        </p:column>
+                        <p:column headerText="Y">
+                            <h:outputText value="#{point.y}"/>
+                        </p:column>
+                        <p:column headerText="R">
+                            <h:outputText value="#{point.r}"/>
+                        </p:column>
+                        <p:column headerText="Время выполнения">
+                            <h:outputText value="#{point.executionTime}">
+                                <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Результат">
+                            <h:outputText value="#{point.result ? 'Попадание' : 'Промах'}" 
+                                        styleClass="hit-status #{point.result ? 'hit-true' : 'hit-false'}"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</f:view>
+</html>

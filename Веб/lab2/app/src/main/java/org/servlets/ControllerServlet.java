@@ -12,7 +12,6 @@ import org.points.FormBean;
 @WebServlet(name = "ControllerServlet", value = "/controller")
 public class ControllerServlet extends HttpServlet {
     
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {

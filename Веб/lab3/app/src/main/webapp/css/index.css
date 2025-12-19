@@ -1,0 +1,30 @@
+#clock {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 18px;
+}
+
+.header {
+    text-align: center; 
+    margin-bottom: 30px; 
+    padding: 20px; 
+    background: #f5f5f5; 
+    border-radius: 10px;
+}
+
+.main {
+    max-width: 800px; 
+    margin: 50px auto; 
+    padding: 20px; 
+    font-family: Arial, sans-serif;
+}
+
+#main-link {
+    text-align: center; 
+    margin-top: 40px;
+    font-size: 16px; 
+    padding: 10px 20px;  
+    color: white; border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+}

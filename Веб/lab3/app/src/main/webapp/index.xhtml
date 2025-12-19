@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title>Лабораторная работа 3 - Стартовая страница</title>
+        <link rel="stylesheet" href="css/index.css"/>
+    </h:head>
+    <h:body>
+        <main>
+            <header class="header">
+                <h1>Лабораторная работа №3</h1>
+                <h2>Студент: Панченко А.Д.</h2>
+                <h3>Группа: P3215</h3>
+                <h3>Вариант: 26999</h3>
+            </header>
+            
+            <div id="clock">
+                <strong>Текущее время:</strong>
+                <h:form id="clockForm">
+                    <p:outputLabel id="clockDisplay" value="#{clockBean.currentTime}" 
+                                 style="font-size: 20px; font-weight: bold; color: #2c3e50;"/>
+                    <p:poll interval="1" update="clockDisplay" 
+                           async="true" autoStart="true"/>
+                </h:form>
+            </div>
+            
+            <div id="main-link">
+                <h:button value="Перейти к приложению" outcome="main"/>
+            </div>
+        </main>
+    </h:body>
+</f:view>
+</html>

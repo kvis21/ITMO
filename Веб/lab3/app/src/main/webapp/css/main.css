@@ -1,0 +1,281 @@
+/* Основные стили */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.back-button {
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 8px 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-button:hover {
+    background: #2980b9;
+}
+
+/* Основной контент */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+/* форма */
+.input-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.input-column h3 {
+    color: #34495e;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+/* Стили для форм PrimeFaces */
+.ui-outputlabel {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.ui-selectoneradio {
+    margin-bottom: 15px;
+}
+
+.ui-inputtext {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.ui-selectonemenu {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Кнопки */
+.buttons-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ui-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.ui-button:hover {
+    opacity: 0.9;
+}
+
+.ui-button-primary {
+    background: #3498db;
+    color: white;
+}
+
+.ui-button-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+/*график */
+.graph-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.graph-column h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+.graph-container {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#graphCanvas {
+    border: 2px solid #34495e;
+    border-radius: 4px;
+    cursor: crosshair;
+    background: #ecf0f1;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Таблица результатов */
+.results-section {
+    margin-top: 40px;
+}
+
+.results-section h3 {
+    color: #34495e;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+/* Стили для PrimeFaces таблицы */
+.points-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.points-table .ui-datatable-header {
+    background: #34495e;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.points-table th {
+    background: #2c3e50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.points-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.points-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.points-table tr:hover {
+    background: #e8f4fd;
+}
+
+/* Стили для статуса результата */
+.hit-status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.hit-true {
+    color: #27ae60;
+    background: #d5f4e6;
+}
+
+.hit-false {
+    color: #e74c3c;
+    background: #fadbd8;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.ui-message-error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.ui-state-error {
+    border-color: #e74c3c !important;
+}
+
+.ui-paginator {
+    background: #ecf0f1;
+    border: none;
+    padding: 10px;
+}
+
+.ui-paginator .ui-paginator-page,
+.ui-paginator .ui-paginator-prev,
+.ui-paginator .ui-paginator-next {
+    padding: 6px 10px;
+    margin: 0 2px;
+    border-radius: 4px;
+    border: 1px solid #bdc3c7;
+}
+
+.ui-paginator .ui-paginator-page.ui-state-active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+/* sliderEntry */
+.ice-sldr-entry {
+    width: 200px;
+    margin: 10px 0;
+}
+
+.ice-sldr-entry-track {
+    background: #bdc3c7 ;
+    height: 6px ;
+    border-radius: 3px ;
+}
+
+.ice-sldr-entry-thumb {
+    background: #3498db ;
+    border: 2px solid #2980b9 ;
+    width: 16px ;
+    height: 16px ;
+    border-radius: 50% ;
+}
+
+.ice-sldr-entry-thumb:hover {
+    background: #2980b9 ;
+}
+
+.ice-sldr-entry-progress {
+    background: #2980b9 ;
+    height: 6px ;
+    border-radius: 3px ;
+}
+
+
+#graphCanvas {
+  border: 2px solid #202e3b;
+  border-radius: 8px;
+  width: 500px;
+  height: 500px;
+  align-self: center;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.5s ease-out;
+}
