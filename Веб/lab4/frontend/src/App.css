@@ -1,0 +1,167 @@
+/* Базовые стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    border-radius: 15px 15px;
+    width: 90%;
+}
+
+/* ----------------------------------------------- 
+Login Page
+*/
+.login-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80%;
+}
+
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: width 0.3s ease; /* Плавный переход при изменении размера окна */
+}
+
+.login-container h3 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.login-form {
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Чтобы padding не раздувал ширину */
+    font-size: 1rem;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.login-btn, .register-btn {
+    cursor: pointer;
+    border-radius: 6px;
+    width: 60%;
+}
+.login-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.register-btn {
+    background-color: transparent;
+    color: #2196F3;
+    border: 1px solid #2196F3;
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #1976D2;
+}
+.register-btn:hover {
+    background-color: #c3ddfc;
+}
+
+/* ----------------------------------------------- 
+Main Page
+*/
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Стили для таблицы */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.results-table th, .results-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.error-text {
+    color: #d32f2f;
+    background: #ffcdd2;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+
+/* ----------------------------------------------- */
+/* Медиа-запросы */
+@media (max-width: 797px) {
+    .content-wrapper {
+        flex-direction: column; 
+        width: 95%;
+    }
+    .login-container {
+        width: 90%;
+    }
+}
+
+@media (min-width: 798px) and (max-width: 1173px) {
+    .content-wrapper {
+        flex-direction: row; 
+        width: 90%;
+    }
+    .login-container {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1174px) {
+    .content-wrapper {
+        flex-direction: row;
+        width: 1100px; 
+    }
+    .login-container {
+        width: 450px;
+    }
+}
