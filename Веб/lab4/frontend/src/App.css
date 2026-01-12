@@ -112,16 +112,38 @@ Main Page
 }
 
 /* Стили для таблицы */
+.table-container {
+    width: 50%; 
+    max-height: 400px; 
+    overflow-y: auto; 
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
 .results-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
+    table-layout: fixed;
+    
 }
 
-.results-table th, .results-table td {
+.results-table th {
+    position: sticky;
+    top: 0;
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.results-table td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: center;
+}
+
+.results-table th:nth-child(1), .results-table th:nth-child(2), .results-table th:nth-child(3) {
+    width: 10%;
 }
 
 .error-text {

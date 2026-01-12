@@ -31,8 +31,9 @@ const LoginPage = () => {
             navigate('/main'); 
         } catch (err) {
             setPassword("")
-            console.log(err);
-            setError(err.response);
+            const message = err.response.data.error;
+            console.log(message);
+            setError(message);
         }
     };
     const handleRegister = async () => {

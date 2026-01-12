@@ -112,25 +112,26 @@ const MainPage = () => {
                     </form>
                 </div>
             </div>
-
-            <table className="results-table">
-                <thead>
-                    <tr>
-                        <th>X</th><th>Y</th><th>R</th><th>Результат</th><th>Время</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {points.map((p, i) => (
-                        <tr key={i}>
-                            <td>{p.x}</td><td>{p.y}</td><td>{p.r}</td>
-                            <td style={{color: p.result ? 'green' : 'red'}}>
-                                {p.result ? 'Попал' : 'Мимо'}
-                            </td>
-                            <td>{p.time || '—'}</td>
+            <div className="table-container">
+                <table className="results-table">
+                    <thead>
+                        <tr>
+                            <th>X</th><th>Y</th><th>R</th><th>Результат</th><th>Время</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {points.map((p, i) => (
+                            <tr key={i}>
+                                <td>{p.x}</td><td>{p.y}</td><td>{p.r}</td>
+                                <td style={{color: p.result ? 'green' : 'red'}}>
+                                    {p.result ? 'Попал' : 'Мимо'}
+                                </td>
+                                <td>{p.time || '—'}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
