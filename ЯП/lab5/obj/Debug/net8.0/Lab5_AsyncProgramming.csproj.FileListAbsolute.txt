@@ -1,0 +1,15 @@
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.GeneratedMSBuildEditorConfig.editorconfig
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.AssemblyInfoInputs.cache
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.AssemblyInfo.cs
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.csproj.CoreCompileInputs.cache
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.sourcelink.json
+/home/kvis/ITMO/ЯП/lab5/bin/Debug/net8.0/Lab5_AsyncProgramming
+/home/kvis/ITMO/ЯП/lab5/bin/Debug/net8.0/Lab5_AsyncProgramming.deps.json
+/home/kvis/ITMO/ЯП/lab5/bin/Debug/net8.0/Lab5_AsyncProgramming.runtimeconfig.json
+/home/kvis/ITMO/ЯП/lab5/bin/Debug/net8.0/Lab5_AsyncProgramming.dll
+/home/kvis/ITMO/ЯП/lab5/bin/Debug/net8.0/Lab5_AsyncProgramming.pdb
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.dll
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/refint/Lab5_AsyncProgramming.dll
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.pdb
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/Lab5_AsyncProgramming.genruntimeconfig.cache
+/home/kvis/ITMO/ЯП/lab5/obj/Debug/net8.0/ref/Lab5_AsyncProgramming.dll

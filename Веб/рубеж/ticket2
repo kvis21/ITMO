@@ -1,0 +1,27 @@
+1. Интеграция FastCGI скриптов с веб-сервером (Apache)
+
+
+###############################################################
+
+1. Интеграция FastCGI скриптов с веб-сервером (Apache)
+
+1. загрузка модуля 
+Load module fcgi_module modules/mod_fcgid.so
+
+2. конфигурация
+<IfModule mod_fcgid.c>
+    ScriptAlias /fcgi_bin/ /var/www/html/fcgi-bin/
+    <Directory>
+        SetHandler fcgid_script
+        Requires all granted
+    </Directory>
+
+</IfModule>
+
+
+
+###############################################################
+
+
+
+###############################################################

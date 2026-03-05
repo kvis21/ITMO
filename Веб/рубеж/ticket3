@@ -1,0 +1,47 @@
+Long Polling и WebSockets: зачем нужны, сходства и
+различия
+
+
+Long pooling 
+нужен для получения данных с сервера имитируяя реальное соединение
+механизм:
+1. клиент держит соединение открытым и ждет пока не получит с сервера новые данные
+2. после получения закрывается соединение и отправляется новый запрос
+
+WebSockets
+нужны для постоянного двунаправленного соединения между клиентом и сервером
+механизм:
+1. использует 1 сокет для обмена данными в реальном времени без доп нагрузки на сервера
+
+
+####################################################
+
+Написать JSP страницу, которая выводит количество
+пользователей, которые отправляли запросы за последние 60
+секунд
+
+
+<%@ page import java.util.concurrent.ConcurrentHashMap, java.util.Map, java.util.Iterator %>
+<%
+    ServletContext context = getServletContext();
+    ConcurrentHashMap<String, Long> userMap = (ConcurrentHashMap<String, Long>) context.getAttribute("userMap");
+
+    String userIP = request.getRemoteAddr();
+    long currentTime = System.currentTimeMillis();
+
+    userMap.put(userIP, currentTime);
+
+
+    Iterator<Map.Entry<String, Long>> iterator = userMap.entrySet().iterator();
+    while (iterator.hasNext()){
+        Map.Entry<String, Long> entry = iterator.next();
+        if ((currentTime - entry.getValue()) > 60000) {
+            iterator.remove();
+        }
+    }
+
+    int userCount = userMap.size();
+%>
+
+<p>Количество пользователей за последние 60 секунд: <%= userC
+ount %></p>

@@ -18,7 +18,7 @@ public class PointRepository {
     public void save(Point point) {
         entityManager.persist(point);
     }
-  
+
     public List<Point> findAll() {
         return entityManager.createQuery("SELECT p FROM Point p ORDER BY p.executionTime DESC", Point.class)
                 .getResultList();

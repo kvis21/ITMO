@@ -1,0 +1,265 @@
+<mxfile host="65bd71144e">
+    <diagram name="Страница — 1" id="p12fUWuBxTMcxibGSODB">
+        <mxGraphModel dx="3786" dy="4436" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-1" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="400" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-2" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="400" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-3" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt; ⋈&lt;/b&gt; &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ.ОЦЕНКА =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;.КОД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="217" y="300" width="330" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="RSq4G0n_Gv9xIA6ASCq_-1" target="RSq4G0n_Gv9xIA6ASCq_-3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="417" y="380" as="sourcePoint"/>
+                        <mxPoint x="467" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="RSq4G0n_Gv9xIA6ASCq_-2" target="RSq4G0n_Gv9xIA6ASCq_-3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="417" y="380" as="sourcePoint"/>
+                        <mxPoint x="467" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="RSq4G0n_Gv9xIA6ASCq_-9" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-9" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;line-height: 107%; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-size: 14px;&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;.ПРИМЕЧАНИЕ &amp;lt; &#39;отлично&#39;&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="210" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.479;exitY=0.044;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="RSq4G0n_Gv9xIA6ASCq_-3" target="RSq4G0n_Gv9xIA6ASCq_-9" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="477" y="280" as="sourcePoint"/>
+                        <mxPoint x="527" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="RSq4G0n_Gv9xIA6ASCq_-11" target="RSq4G0n_Gv9xIA6ASCq_-13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-11" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 20px;&quot;&gt;π&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px; font-family: &amp;quot;Segoe UI&amp;quot;, sans-serif; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); padding: 0px 0px 0px 2px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: monospace; font-size: 12pt; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: Helvetica; font-size: 14px; white-space: normal; background-color: rgb(251, 251, 251);&quot;&gt;Н_ОЦЕНКИ.КОД&lt;/span&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: Helvetica; font-size: 14px; white-space: normal; background-color: rgb(251, 251, 251);&quot;&gt;Н_ВЕДОМОСТИ.ДАТА&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="226.75" y="40" width="296.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-13" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Результат&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="-40" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="RSq4G0n_Gv9xIA6ASCq_-52" value="&lt;font style=&quot;font-size: 26px;&quot;&gt;&lt;b style=&quot;&quot;&gt;План 1&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="325" y="-80" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="RSq4G0n_Gv9xIA6ASCq_-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 20px;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 14px;&quot;&gt;.ИД &amp;lt; 1457443&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="256" y="120" width="238" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="8" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="784" y="400" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1121" y="400" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="10" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt; ⋈&lt;/b&gt; &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ.ОЦЕНКА =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;.КОД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="815" y="220" width="330" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="14" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;line-height: 107%; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-size: 14px;&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;.ПРИМЕЧАНИЕ &amp;lt; &#39;отлично&#39;&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1011" y="320" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Результат&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="945" y="50" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;font style=&quot;font-size: 26px;&quot;&gt;&lt;b style=&quot;&quot;&gt;План 2&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="930" y="10" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="21" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 20px;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 14px;&quot;&gt;.ИД &amp;lt; 1457443&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="320" width="238" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="28" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 20px;&quot;&gt;π&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px; font-family: &amp;quot;Segoe UI&amp;quot;, sans-serif; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); padding: 0px 0px 0px 2px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: monospace; font-size: 12pt; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: Helvetica; font-size: 14px; white-space: normal; background-color: rgb(251, 251, 251);&quot;&gt;Н_ОЦЕНКИ.КОД&lt;/span&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: Helvetica; font-size: 14px; white-space: normal; background-color: rgb(251, 251, 251);&quot;&gt;Н_ВЕДОМОСТИ.ДАТА&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="831.75" y="130" width="296.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="35" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="&lt;span&gt;Н_ЛЮДИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-36.5" y="-1160" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="36" target="67">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="&lt;span&gt;Н_УЧЕНИКИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="-1270" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="37" target="67">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="&lt;font&gt;&lt;b&gt; ⋈&lt;/b&gt;&amp;nbsp;&lt;/font&gt;&lt;font&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ЛЮДИ&lt;/span&gt;.ИД =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОБУЧЕНИЯ&lt;/span&gt;.ЧЛВК_ИД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-86.5" y="-1270" width="330" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="41" target="48">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;line-height: 107%; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ЛЮДИ.ИД = 100865&lt;/span&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="92.25" y="-1480" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="44" target="45">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;π&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px; font-family: &amp;quot;Segoe UI&amp;quot;, sans-serif; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Н_ЛЮДИ.ИМЯ, Н_ОБУЧЕНИЯ.ЧЛВК_ИД, Н_УЧЕНИКИ.ГРУППА&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-26" y="-1770" width="520" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&lt;font&gt;Результат&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="199" y="-1860" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;План 1&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="184" y="-1880" width="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="48" target="70">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Н_ОБЧУЧЕНИЯ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;.ЧЛВК_ИД &amp;lt; 113409&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="96.37" y="-1580" width="288.25" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="50" target="60">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1514" y="-1130" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="52" target="56">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1851" y="-1130" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="54" target="62">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt; ⋈&lt;/b&gt; &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ.ОЦЕНКА =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;.КОД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1545" y="-1310" width="330" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=none;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="56" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;line-height: 107%; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-size: 14px;&quot;&gt;Н_ОЦЕНКИ&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;.ПРИМЕЧАНИЕ &amp;lt; &#39;отлично&#39;&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1741" y="-1210" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Результат&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1675" y="-1480" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="&lt;font style=&quot;font-size: 26px;&quot;&gt;&lt;b style=&quot;&quot;&gt;План 2&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1660" y="-1520" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="60" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 20px;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 14px;&quot;&gt;Н_ВЕДОМОСТИ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 14px;&quot;&gt;.ИД &amp;lt; 1457443&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1430" y="-1210" width="238" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="62" target="57">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 20px;&quot;&gt;π&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px; font-family: &amp;quot;Segoe UI&amp;quot;, sans-serif; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); padding: 0px 0px 0px 2px;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: monospace; font-size: 12pt; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: Helvetica; font-size: 14px; white-space: normal; background-color: rgb(251, 251, 251);&quot;&gt;Н_ОЦЕНКИ.КОД&lt;/span&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: Helvetica; font-size: 14px; white-space: normal; background-color: rgb(251, 251, 251);&quot;&gt;Н_ВЕДОМОСТИ.ДАТА&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1561.75" y="-1400" width="296.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="" style="edgeStyle=none;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="1" source="64" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="&lt;span&gt;Н_ОБУЧЕНИЯ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="126.5" y="-1160" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="67" target="41">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="&lt;font&gt;&lt;b&gt; ⋈&lt;/b&gt;&amp;nbsp;&lt;/font&gt;&lt;font&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОБУЧЕНИЯ&lt;/span&gt;.ЧЛВК_ИД =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_УЧЕНИКИ&lt;/span&gt;.ЧЛВК_ИД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="39" y="-1380" width="403" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="" style="edgeStyle=none;html=1;fontSize=16;" edge="1" parent="1" source="70" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Н_УЧЕНИКИ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;.ГРУППА &amp;lt; &#39;4100&#39;&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="114.63" y="-1670" width="245.25" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="97" target="103">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="&lt;span&gt;Н_ЛЮДИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="-1120" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="99" target="115">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="&lt;span&gt;Н_УЧЕНИКИ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="1220" y="-1200" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="101" target="113">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="&lt;font&gt;&lt;b&gt; ⋈&lt;/b&gt;&amp;nbsp;&lt;/font&gt;&lt;font&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ЛЮДИ&lt;/span&gt;.ИД =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОБУЧЕНИЯ&lt;/span&gt;.ЧЛВК_ИД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="636" y="-1340" width="330" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="103" target="101">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;line-height: 107%; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ЛЮДИ.ИД = 100865&lt;/span&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="-1190" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="105" target="106">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;π&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px; font-family: &amp;quot;Segoe UI&amp;quot;, sans-serif; color: rgb(33, 37, 41);&quot;&gt;&lt;span style=&quot;color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Н_ЛЮДИ.ИМЯ, Н_ОБУЧЕНИЯ.ЧЛВК_ИД, Н_УЧЕНИКИ.ГРУППА&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="784" y="-1570" width="520" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="&lt;font&gt;Результат&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="1009" y="-1655" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;План 2&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="994" y="-1675" width="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="109" target="101">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Н_ОБЧУЧЕНИЯ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;.ЧЛВК_ИД &amp;lt; 113409&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="830" y="-1200" width="288.25" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="117" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="111" target="109">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="&lt;span&gt;Н_ОБУЧЕНИЯ&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="939.12" y="-1120" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="123" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="113" target="105">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" value="&lt;font&gt;&lt;b&gt; ⋈&lt;/b&gt;&amp;nbsp;&lt;/font&gt;&lt;font&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_ОБУЧЕНИЯ&lt;/span&gt;.ЧЛВК_ИД =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Н_УЧЕНИКИ&lt;/span&gt;.ЧЛВК_ИД&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="840" y="-1480" width="403" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="115" target="113">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="&lt;font style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;σ&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;forced-color-adjust: none; color: light-dark(rgb(33, 37, 41), rgb(202, 206, 209)); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; line-height: 12.84px;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;Н_УЧЕНИКИ&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;.ГРУППА &amp;lt; &#39;4100&#39;&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="1132.37" y="-1330" width="245.25" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

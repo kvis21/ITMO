@@ -1,0 +1,80 @@
+Билет 1 
+1. Основные принципы JavaScript 
+2. JSP Action 
+3. FastCGI + Fetch API, делающий HTML с приветствием через GET на Java и Apache)
+
+###############################################################
+1. Основные принципы JavaScript 
+js - высокоуровневый, интерпретируемый яп, используемый для создания интерактивных и динамичных веб-страниц
+
+принципы js:
+1. прототипное наследование - объекты наследуют свойства и методы другого объекта (прототипа), вместо создания классов
+2. замыкания - функции имеют доступ к видимости откуда они были созданы
+3. асинхронное-событийное программирование 
+4. динамическая типизация 
+5. функции как объекты - функции можно присваивать переменным, возвращать как объекты, передавать как параметры
+
+
+###############################################################
+2. JSP Action 
+
+JSP Actions - специальные теги в jsp, которые выполняют встроенные функции без необходимости писать java-code внутри 
+Jsp-страницы
+
+теги:
+include - включает другой ресурс
+forward - перенаправляет на другой ресурс
+useBean - создает или находит экземпляр javaBeans
+setProperty -  установить значение свойства
+getProperty - получить значение свойства
+
+
+
+###############################################################
+
+3. FastCGI + Fetch API, делающий HTML с приветствием через GET на Java и Apache)
+
+
+public class HelloFastCGI{
+    public void main(String[] args) throws IOException{
+        FCGIInterface fcginterface = new FCGIInterface();
+        while (fcginterface.accept()>=0){
+            try {
+                String queryString = getProperty("QUERY_STRING");
+                Map<String, String> params = queryParser(queryString);
+
+                params.getOrDefault("name", "гость")
+
+                String html = "<html><body><h1>Привет, " + name + "!</h1></body></html>";
+                String response = "Status: 200 OK\\r\\n" +
+                                "Content-Type: text/html; charset=utf-8\\r\\n" +
+                                "Content-Length: " + html.getBytes(StandardCharsets.UTF_8).length + "\\r\\n\\r\\n" +
+                                html;
+                FCGIInterface.request.outStream.write(response.getBytes(StandardCharsets.UTF_8));
+                FCGIInterface.request.outStream.flush();
+            }
+        }
+    }
+}
+
+<IfModule mod_fcgid.c>
+    ScriptAlias /fcgi-bin/ "/var/www/html/fcgi-bin/"
+    <Directory "/var/www/html/fcgi-bin/">
+        Require all granted
+        SetHandler fcgid-script
+    </Directory>
+</IfModule>
+
+<html>
+<body>
+    <head>
+        <meta charset="UTF-8">
+    <\head>
+    <script>
+        fetch("/fcgi-bin/HelloFastCGI?name=Иван")
+            .then(response => response.text)
+            .then(html => document.body.innerHTML = html);
+    <\script>
+<\body>
+<\html>
+

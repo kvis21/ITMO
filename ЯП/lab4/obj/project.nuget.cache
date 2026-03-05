@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "n/DWzaQaN/0=",
+  "success": true,
+  "projectFilePath": "/home/kvis/ITMO/ЯП/lab4/CSConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "/home/kvis/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512",
+    "/home/kvis/.nuget/packages/newtonsoft.json/13.0.4/newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

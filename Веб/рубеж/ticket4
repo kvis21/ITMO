@@ -1,0 +1,14 @@
+3. Шаблон и код инициализации контекста Thymeleaf,
+формирующие HTML-страницу с текущими курсами валют
+
+
+@Controller
+public class CurrencyController {
+
+    @getMapping("/exchange-rate")
+    public String getExchangesRate(Model model){
+        CurrencyData data = currencyService.getLatestRates();
+        model.addAttribute("data", data);
+        return "exchangeRates";
+    }
+}

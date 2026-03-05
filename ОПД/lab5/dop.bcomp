@@ -1,0 +1,73 @@
+ORG 0x100;
+UPPER_YO: WORD 0xA1
+LOWER_YO: WORD 0xF1
+UPPER_A: WORD 0xB0
+LOWER_A: WORD 0xD0
+NUMBER_SYM: WORD 0xF0
+
+CNT: WORD 0x0  		; Счетчик 
+CUR: WORD ?    			; Текущий символ
+BUF_START: WORD 0x200		; начальный адрес буфера
+BUF: WORD 0x200		; текущий адрес буфера 
+
+
+INPUT: IN 0x19   		; Читаем SR у клавиатуры
+               AND #0x40  		; Проверяем 6 бит
+               BEQ INPUT  		; SPIN-LOOP
+               IN 0x18  		; Читаем символ с клавиатуры
+
+CHECK: CMP #0x0A		; сравниваем с ENTER (Стоп-символ)
+                BEQ  PRINT_LOOP   		; переход в цикл печати
+
+                CMP UPPER_YO  		; Сравниваем с "Ё"
+                BEQ LYO  		; переход к выводу "ё" если "Ё"
+                CMP LOWER_YO  		; Сравниваем с "ё"
+                BEQ HYO  		; переход к выводу "Ё" если "ё"
+
+                CMP UPPER_A 		; Сравниваем с "А" (начало русских букв)
+                BLT INPUT  		; Переход, если меньше чем "А" в ISO-8859-5
+                CMP LOWER_A  		; Сравниваем с "а"
+                BLT TO_LOWER 		; Переход, если меньше чем"я" в ISO-8859-5
+                CMP NUMBER_SYM 		; Сравниваем с "№"
+                BLT TO_UPPER		; Переход, если меньше чем "№" в ISO-8859-5
+
+
+OUTPUT: ST CUR
+                   LD CNT
+                   INC			; увеличиваем счетчик
+                   ST CNT	
+
+                   AND #0x01		; проверяем четность
+                   BEQ INPUT		; если не четный, то переход к вводу
+                   
+                   LD BUF
+                   INC
+                   ST BUF
+
+                   LD CUR
+                   ST (BUF)
+                   
+                   JUMP INPUT
+
+PRINT_LOOP: LD BUF
+                            CMP BUF_START	; Проверяем не закончился ли буфер
+                            BEQ EXIT 		; выход из программы если буфер пуст
+                            LD (BUF)		
+                            OUT 0xC  		; Выводим на текстовый принтер     
+                            LD BUF                       	
+                            DEC		; Уменьшаем указатель буфера на 1
+                            ST BUF	
+                            JUMP PRINT_LOOP	; Повторяем цикл
+EXIT: HLT
+
+HYO: LD UPPER_YO 	; Загружаем "Ё"
+          JUMP OUTPUT
+
+LYO: LD LOWER_YO	;Загружаем "ё"
+          JUMP OUTPUT
+
+TO_LOWER: ADD #0x20	; переводим символ в нижний регистр в ISO-8859-5
+                        JUMP OUTPUT
+
+TO_UPPER: SUB #0x20	; переводим символ в верхний регистр в ISO-8859-5 
+                       JUMP OUTPUT

@@ -1,0 +1,19 @@
+№1
+c = (a+b)/2
+x_1 = (a+b-delta)/2
+x_2 = (a+b+delta)/2
+
+f(x_1) <= f(x_2) \to b=x_2
+
+f(x_1) > f(x_2) \to a = x
+
+x_x = (xe-xr)/2
+
+\delta = (xe-xr)/2 <= \epsilon
+
+
+№2
+
+
+
+
