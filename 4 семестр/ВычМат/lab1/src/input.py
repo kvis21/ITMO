@@ -5,11 +5,12 @@ from typing import List, Optional, Tuple
 import os
 
 def input_matrix() -> Tuple[Matrix, float]:
-    print("1 - Ввод из файла")
-    print("2 - Ввод из консоли")
-    print("3 - генерация рандомной матрицы")
+
 
     while True:
+        print("1 - Ввод из файла")
+        print("2 - Ввод из консоли")
+        print("3 - генерация рандомной матрицы")
         try:
             choice = input().strip()
             if choice == '1':
@@ -21,6 +22,7 @@ def input_matrix() -> Tuple[Matrix, float]:
             else:
                 print("Ошибка: введите число от 1 до 3")
         except (FileNotFoundError, ValueError) as e:
+            print(f"Ошибка: {e}")
             continue
         except Exception as e:
             break
@@ -52,9 +54,15 @@ def _input_from_file() -> Tuple[Matrix, float]:
 
 def _input_from_console() -> Tuple[Matrix, float]:
     while True:
-        n, epsilon  = input("Введите размерность матрицы и точность: ").strip().split()[:2]
-        n = int(n)
-        epsilon = float(epsilon.replace(',', '.'))
+        try:
+            n, epsilon  = input("Введите размерность матрицы и точность: ").strip().split()[:2]
+            n = int(n)
+            epsilon = float(epsilon.replace(',', '.'))
+            print(f"Размерность = {n}; точность = {epsilon}")
+        except ValueError:
+            print("Ошибка: введите корректные числовые значения.")
+            continue
+
         matrix_data = []
 
         if n <= 0:
@@ -88,20 +96,22 @@ def _input_from_random() -> Tuple[Matrix, float]:
             
             n = int(n)
             epsilon = float(epsilon.replace(',', '.'))
-
-            if n <= 0:
-                print("Размерность должна быть больше 0.")
-                continue
-            if epsilon <= 0:
-                print("Точность должна быть положительным числом.")
-                continue
-
-            matrix = generate_matrix(n)
-            print(f"Сгенерирована матрица размерности {n}x{n} с точностью {epsilon}")
-            return matrix, epsilon
-
+            print(f"Размерность = {n}; точность = {epsilon}")
         except ValueError:
             print("Ошибка: введите корректные числовые значения.")
+            continue
+        
+        if n <= 0:
+            print("Размерность должна быть больше 0.")
+            continue
+        if epsilon <= 0:
+            print("Точность должна быть положительным числом.")
+            continue
+
+        matrix = generate_matrix(n)
+        print(f"Сгенерирована матрица размерности {n}x{n} с точностью {epsilon}")
+        return matrix, epsilon
+        
 
 def _parse_row(line: str, expected_length: Optional[int] = None) -> List[float]:
     line = line.replace(',', ' ').replace('\t', ' ')
@@ -116,6 +126,6 @@ def _parse_row(line: str, expected_length: Optional[int] = None) -> List[float]:
             raise ValueError(f"Невозможно преобразовать '{part}' в число")
     
     if expected_length is not None and len(numbers) != expected_length+1:
-        raise ValueError(f"Строка содержит {len(numbers)} чисел, ожидалось {expected_length}")
+        raise ValueError(f"Строка содержит {len(numbers)} чисел, ожидалось {expected_length+1}")
     
     return numbers
