@@ -1,8 +1,4 @@
-from input_manger import get_task_type
+from gui.streamlit_app import run_app
 
-def main():
-    pass
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    run_app()

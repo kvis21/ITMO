@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from src.equation import SystemEquation, EquationType
-from src.methods.base import MethodType
+from equation import NonLinearSystem, EquationType
+from methods.base import MethodType
 
 def get_task_type() -> EquationType:
     print("выберите тип задачи:")
@@ -34,7 +34,7 @@ def get_method_type(eq_type: EquationType) -> MethodType:
 
 @dataclass
 class InputData:
-    equation: SystemEquation
+    equation: NonLinearSystem
 
 
 def start_input() -> None: 

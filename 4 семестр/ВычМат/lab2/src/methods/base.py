@@ -1,25 +1,21 @@
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Any, List
-from src.equation import SystemEquation
+from typing import Any, List, Optional
+from dataclasses import dataclass
 
-
+@dataclass
 class ResultMethod:
-    def __init__(self, solutions: List[float], iterations_data: list[Any], errors: List[float]):
-        self.solutions = solutions
-        self.iterations_data = iterations_data
-        self.errors = errors
-
-    def __init__(self, error: str):
-        pass
-
+    solutions: Optional[List[float]] = None
+    iterations_data: Optional[List[Any]] = None
+    errors: Optional[List[float]] = None
+    error_message: Optional[str] = None
+    success: bool = True
 
 class Method(ABC):
     @abstractmethod 
-    def solve(equation: SystemEquation) -> ResultMethod: pass
-
-
-
+    def solve(self, equation: Any, **kwargs) -> ResultMethod:
+        """Метод решения, принимающий объект уравнения/системы и параметры (a, b, eps, x0)"""
+        pass
 
 class MethodType(Enum):
     CHORD = "Метод хорд"
