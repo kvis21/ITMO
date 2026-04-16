@@ -21,6 +21,10 @@ class NonLinearSystem:
     # Якобиан возвращает матрицу 2x2 в виде списка списков [[a, b], [c, d]]
     jacobian: Callable[[List[float]], List[List[float]]]
 
+    def evaluate(self, v: List[float]) -> List[float]:
+        """Возвращает вектор значений функций системы для заданного приближения"""
+        return [f(v) for f in self.funcs]
+
     def __str__(self) -> str:
         return self.func_str
 

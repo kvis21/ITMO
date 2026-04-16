@@ -41,7 +41,6 @@ def render_equation_page(equations):
         else:
             solver = MethodManager.get_method(method_type)
             
-            # Автоматический выбор x0 (Условие 5: f(x0) * f''(x0) > 0)
             x0 = a if eq.f(a) * eq.ddf(a) > 0 else b
             
             # Решаем и сохраняем в сессию
