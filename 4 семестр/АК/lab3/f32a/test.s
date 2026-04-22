@@ -1,8 +1,8 @@
 .data
     .org 0x100
-input_ptr:   .word 0x80
-output_ptr:  .word 0x84
-mem_ptr:     .word 0x00
+input_ptr:     .word 0x80
+output_ptr:    .word 0x84
+mem_ptr:       .word 0x00
 
     .text
     .org 0x200
@@ -10,8 +10,11 @@ _start:
 \ --- начало ---
     lit 1 >r             \ Флаг: 1 - начало строки или после пробела 
 loop:
-    @p input_ptr a! @    \ Читаем символ из порта 0x80  
+    @p mem_ptr lit 32 xor
+    if overflow_detected
 
+    @p input_ptr a! @    \ Читаем символ из порта 0x80  
+    
     dup lit 10 xor                      \ Проверка на \n 
     if end                              
     
@@ -52,45 +55,46 @@ check_up:
     dup lit 96 over inv lit 1 + + \ Вычисляем (96 - char) 
     -if make_lower
     write_char ;
+
 make_lower:
     lit 32 +
     write_char ;
-overflow:
-    lit -858993460 @p output_ptr a! !
-    end_prog ;
 
 write_char:
-    
-    \@p output_ptr a! dup !   \ Записываем символ в порт 0x84  29a-29d
-    @p mem_ptr a! !+        \ Записываем символ в mem[0...31]  2a2-2a4
-    a !p mem_ptr            \ запишем инкрементированный поинтер в mem_ptr   2a5-2aa
+    @p mem_ptr a! !+        \ Записываем символ в mem[0...31]  
+    a !p mem_ptr            \ запишем инкрементированный поинтер в mem_ptr  
     loop ;               \ Безусловный переход в начало цикла
+
+overflow_detected:
+    lit 0xCCCCCCCC      
+    @p output_ptr a! !
+    end_prog ;
 
 end:
     drop                 \ Убираем символ \n со стека
     r> drop              \ Очищаем R-стек
 
-    \ --- Установка нуль-терминатора ---
     @p mem_ptr dup a! lit 0 !+ 
     a dup !p mem_ptr
-    
-    \ --- Вычисляем количество оставшихся ячеек ---
-    inv lit 32 +         \ Считаем остаток. Если места не было, уйдет в минус
-    
-    \ --- Проверка на переполнение ---
-    dup -if no_overflow  \ Если счетчик >= 0, переполнения нет, идем дальше
-    drop                 \ Иначе (счетчик < 0): убираем мусор со стека
-    overflow ;           \ Прыгаем в ваш обработчик переполнения
+    inv lit 32 +  >r            \ Устанавливаем счетчик на 32 - mem[mem_ptr] 
+    @p mem_ptr a!             \ Начинаем с адреса mem[mem_ptr]
 
-no_overflow:
-    >r                   \ Устанавливаем валидный счетчик в R-стек
-    @p mem_ptr a!        \ Начинаем с адреса mem[mem_ptr]
-
-    a lit 32 xor         \ Проверяем: достигли ли мы конца буфера (A == 32?)
-    if end_prog          \ Если xor дал 0 (то есть A равно 32), завершаем
+    a lit 32 xor if start_printing     
 fill_loop:
     lit 0x5f !+          \ Записываем '_' и инкрементируем A
     next fill_loop       \ Повторяем, пока R не станет 0
-    
+
+start_printing:
+    lit 0 a!             \ Начинаем с самого начала памяти
+    lit 32 >r            \ Устанавливаем счетчик цикла на 32
+
+print_loop:
+    @+ lit 0xff and                  \ Читаем символ из памяти (A++), кладем в T
+
+    dup if end_prog
+
+    @p output_ptr b! !b  \ Записываем T в порт 0x84
+    next print_loop      \ Декремент R и переход, если R > 0
+
 end_prog:
-    halt
+    halt           

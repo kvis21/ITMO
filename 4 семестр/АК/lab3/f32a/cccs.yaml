@@ -7,7 +7,7 @@ memory_mapped_io:
   0x84: []
 reports:
   - name: debug
-    slice: ["tail", 100]
+    slice: ["tail", 30]
     view: |
       {pc:hex}: B: {B:hex} A: {A:hex} T: {T:hex} R: {R:hex} stack: {stack:hex}
       mem_ptr: {memory:0x108:0x10b}

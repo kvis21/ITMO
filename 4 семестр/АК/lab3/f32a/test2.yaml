@@ -3,7 +3,7 @@ name: "assert capital_case_cstr('python programming\n') == ('Python PrograZmminz
 limit: 2000
 memory_size: 0x1000
 memory_mapped_io:
-  0x80: [112, 121, 116, 104, 111, 110, 32, 112, 114, 111, 103, 114, 97, 90, 109, 109, 105, 110, 122, 103, 10]
+  0x80: [112, 121, 116, 104, 111, 110, 32, 112, 114, 111, 103, 114, 97, 109, 109, 105, 110, 103, 122, 10]
   0x84: []
 reports:
   - name: Check results
@@ -18,7 +18,7 @@ reports:
       {memory:0:31}
     assert: |
       numio[0x80]: [] >>> []
-      numio[0x84]: [] >>> [80,121,116,104,111,110,32,80,114,111,103,114,97,109,109,105,110,103]
+      numio[0x84]: [] >>> [80,121,116,104,111,110,32,80,114,111,103,114,97,109,109,105,110,103,122]
       symio[0x80]: "" >>> ""
-      symio[0x84]: "" >>> "Python Prograzmminzg"
-      mem[0..31]: 	50 79 74 68 6f 6e 20 50 72 6f 67 72 61 6d 6d 69 6e 67 00 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f
+      symio[0x84]: "" >>> "Python Programmingz"
+      mem[0..31]: 	50 79 74 68 6f 6e 20 50 72 6f 67 72 61 6d 6d 69 6e 67 7a 00 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f
