@@ -5,10 +5,8 @@ class NewtonMethod(Method):
     def solve(self, system: NonLinearSystem, **kwargs) -> ResultMethod:
         x0 = kwargs.get('x0')
         eps = kwargs.get('eps', 1e-4)
-        # Добавлено изменение максимального количества итераций
         max_iter = kwargs.get('max_iter', 100) 
         
-        # Извлекаем начальные приближения
         x, y = x0[0], x0[1]
         history = []
         

@@ -1,6 +1,7 @@
 import streamlit as st
 from typing import Optional
 from equation import NonLinearSystem, NonLinearEquation
+from util.file_util import file_processor
 
 def render_equation_input(equations: list[NonLinearEquation]) -> Optional[dict]:
     st.subheader("Настройка параметров уравнения")
@@ -20,30 +21,27 @@ def render_equation_input(equations: list[NonLinearEquation]) -> Optional[dict]:
     if input_method == "Клавиатура":
         col1, col2, col3, col4 = st.columns(4)
         # Значения по умолчанию берем из параметров, чтобы не обнулялись
-        a = col1.number_input("Левая граница (a)", value=-1.0, format="%.4f", key="eq_a")
-        b = col2.number_input("Правая граница (b)", value=1.0, format="%.4f", key="eq_b")
+        a = col1.number_input("Левая граница (a)", value=-10.0, format="%.4f", key="eq_a")
+        b = col2.number_input("Правая граница (b)", value=10.0, format="%.4f", key="eq_b")
         eps = col3.number_input("Точность (eps)", value=0.0001, format="%.6f", key="eq_eps")
         max_iter = col4.number_input("Макс. итераций", min_value=1, value=100, step=10, key="eq_iter")
+
+        if a is None or b is None or eps is None:
+            st.info("Ожидание ввода параметров...")
+            return None
+        if a >= b:
+            st.warning("Граница 'a' должна быть меньше 'b'.")
+            return None
     else:
         uploaded_file = st.file_uploader("Загрузите файл (a b eps)", key="eq_file")
         if uploaded_file:
-            try:
-                content = uploaded_file.read().decode().strip().split()
-                if len(content):
-                    a, b, eps = map(float, content)
-                    st.success(f"Загружено: a={a}, b={b}, eps={eps}")
-                else:
-                    st.error("В файле должно быть 3 числа: a, b, eps.")
-            except Exception:
-                st.error("Ошибка чтения файла.")
-
-    if a is None or b is None or eps is None:
-        st.info("Ожидание ввода параметров...")
-        return None
-    if a >= b:
-        st.warning("Граница 'a' должна быть меньше 'b'.")
-        return None
-        
+            callback = file_processor(uploaded_file)
+            if callback.status:
+                st.success(callback.message)
+                a, b, eps = callback.data["a"], callback.data["b"], callback.data["eps"]
+            else:
+                st.error(callback.message)
+                return None
     return {"equation": selected_eq, "a": a, "b": b, "eps": eps, "max_iter": max_iter}
 
 def render_system_input(systems: list[NonLinearSystem]) -> Optional[dict]:

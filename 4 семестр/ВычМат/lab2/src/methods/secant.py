@@ -6,7 +6,6 @@ class SecantMethod(Method):
         b = kwargs.get('b')
         eps = kwargs.get('eps', 1e-4)
 
-        # Условие 5: Выбор начальных приближений x0 и x1
         if eq.f(a) * eq.ddf(a) > 0:
             x0 = a
             x1 = b
@@ -22,7 +21,6 @@ class SecantMethod(Method):
             if abs(f1 - f0) < 1e-12:
                 return ResultMethod(success=False, error_message="Деление на ноль: разность функций близка к 0")
                 
-            # Шаг метода секущих
             x_next = x1 - f1 * (x1 - x0) / (f1 - f0)
             err = abs(x_next - x1)
             
@@ -31,7 +29,6 @@ class SecantMethod(Method):
             if err < eps:
                 return ResultMethod(solutions=[x_next], iterations_data=history, errors=[err])
                 
-            # Сдвигаем точки для следующей итерации
             x0 = x1
             x1 = x_next
             
