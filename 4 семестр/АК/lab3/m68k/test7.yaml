@@ -1,0 +1,18 @@
+# /app/variants/rle_decompress_bytes/7.yaml
+name: "assert rle_decompress_bytes(3, 27918336) == [-1]"
+limit: 2000
+memory_size: 0x1000
+memory_mapped_io:
+  0x80: [3, 27918336]
+  0x84: []
+reports:
+  - name: Check results
+    slice: last
+    filter:
+      - state
+    view: |
+      numio[0x80]: {io:0x80:dec}
+      numio[0x84]: {io:0x84:dec}
+    assert: |
+      numio[0x80]: [] >>> []
+      numio[0x84]: [] >>> [-1]

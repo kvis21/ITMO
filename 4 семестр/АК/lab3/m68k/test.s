@@ -24,9 +24,11 @@ _start:
     cmp.l 0, D0                    
     blt handle_error            ; Проверка length < 0
 
-    
     beq handle_zero             ; Проверка length == 0
 
+    move.l D0, D5
+    add.l 3, D5
+    lsr.l 2, D5
     
     move.l D0, D1               
     and.l 1, D1                 
@@ -36,12 +38,16 @@ _start:
     
 read_word:
     move.l (A0), D1             ; D1 - текущее слово
-
+    sub.l 1, D5
+    
 read_high_part:
 
     move.l D1, D2
     asr.l 24, D2
     and.l D7, D2               ; D2 - количество скомпрессированных байт
+
+    cmp.l 0, D2
+    beq handle_error
 
     move.l D1, D3
     asr.l 16, D3
@@ -56,6 +62,9 @@ read_lowest_part:
     move.l D1, D2
     asr.l 8, D2
     and.l D7, D2               ; D2 - количество скомпрессированных байт
+
+    cmp.l 0, D2
+    beq handle_error
 
     move.l D1, D3
     and.l D7, D3                ; D3 - скопрессированный байт
@@ -80,6 +89,13 @@ write_bytes_loop:
     jmp read_word
 
 handle_error:
+    cmp.l 0, D5
+    beq return_error
+    sub.l 1, D5
+    move.l (A0), D1
+    jmp handle_error
+
+return_error:
     move.l -1, (A2)             
     jmp end_prog                        
 

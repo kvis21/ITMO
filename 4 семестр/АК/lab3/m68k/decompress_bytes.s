@@ -20,6 +20,17 @@ _start:
     movea.l D0, A1              ; A1 - 0x400 (адрес на времменные ячейки)
 
     move.l (A0), D0             ; D0 - длина (count + byte)
+    
+    cmp.l 0, D0                    
+    blt handle_error            ; Проверка length < 0
+
+    
+    beq handle_zero             ; Проверка length == 0
+
+    
+    move.l D0, D1               
+    and.l 1, D1                 
+    bne handle_error            ; Проверка length % 2 != 0 (нечетность)        
 
     move.l 0x000000ff, D7
     
@@ -68,6 +79,13 @@ write_bytes_loop:
 
     jmp read_word
 
+handle_error:
+    move.l -1, (A2)             
+    jmp end_prog                        
+
+handle_zero:
+    move.l 0, (A2)             
+    jmp end_prog                         
     
 output_bytes:
     movea.l temp_data_addr, A1
