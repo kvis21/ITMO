@@ -1,0 +1,26 @@
+# /app/variants/sum_even_n/1.yaml
+name: "assert sum_even_n(5) == 6"
+limit: 2000
+memory_size: 0x1000
+memory_mapped_io:
+  0x80: [5]
+  0x84: []
+reports:
+  - name: step-by-step
+    slice: all
+    view: |
+      {pc:hex}:	 {A0:hex} {instruction}	{pc:label}
+      T0: {T0:hex}, T1: {T1:hex}, T2: {T2:hex}, T3: {T3:hex}, T4: {T4:hex}, T5: {T5:hex}, T6: {T6:hex}
+      A0: {A0:hex}, A1: {A1:hex}, A2: {A2:hex}, A3: {A3:hex}, A4: {A4:hex}, A5: {A5:hex}, A6: {A6:hex}, A7: {A7:hex}
+      {memory:0x400:0x420}
+      ==============================================================================================================
+  - name: Check results
+    slice: last
+    filter:
+      - state
+    view: |
+      numio[0x80]: {io:0x80:dec}
+      numio[0x84]: {io:0x84:dec}
+    assert: |
+      numio[0x80]: [] >>> []
+      numio[0x84]: [] >>> [6]
