@@ -5,12 +5,10 @@ from src.data import Result, Callback
 
 class RectangleLeftMethod(Method, BaseIntegrationMethod):
     def _calculate_integral(self, f: Callable, a: float, b: float, n: int) -> float:
-        """
-        Вычисляет значение интеграла по формуле ЛЕВЫХ прямоугольников.
-        Формула: h * (f(x0) + f(x1) + ... + f(xn-1))
-        """
         h = (b - a) / n
         total = 0.0
+
+        self._check_value(f(a)); self._check_value(f(b))
         
         for i in range(n):  # От 0 до n-1
             x_i = a + i * h
@@ -26,7 +24,6 @@ class RectangleLeftMethod(Method, BaseIntegrationMethod):
         if any(v is None for v in [f, a, b, eps]):
             return Callback(error="Переданы не все необходимые аргументы (function, a, b, eps).")
 
-        # 2. Итерационный процесс по правилу Рунге
         try:
             n = 4
             i_prev = self._calculate_integral(f, a, b, n)
@@ -40,18 +37,14 @@ class RectangleLeftMethod(Method, BaseIntegrationMethod):
                 if math.isinf(i_curr):
                     return Callback(error="Интеграл не существует: функция имеет разрыв.")
 
-                # Правило Рунге для левых прямоугольников: k = 1, поэтому делим на (2^1 - 1) = 1
-                error = abs(i_curr - i_prev)
-                
-                if error <= eps:
+                if abs(i_curr - i_prev)  <= eps:
                     return Callback(result=Result(value=i_curr, number_split=n))
                     
                 i_prev = i_curr
-            
-            return Callback(
-                result=Result(value=i_curr, number_split=n),
-                error=f"Требуемая точность {eps} не достигнута (текущая погрешность: {error:.2e})."
-            )
+
+            print("Предупреждение: Интеграл не сошелся к требуемой точности за 20 итераций.")
+            print("Предупреждение: Возможно интеграл расходится")
+            return Callback(result=Result(i_curr, n))
 
         except (ValueError, ZeroDivisionError, OverflowError) as e:
             return Callback(error=f"Интеграл не существует: функция имеет разрыв.")

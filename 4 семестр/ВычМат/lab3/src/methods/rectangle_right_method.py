@@ -7,6 +7,9 @@ from typing import Callable, Any
 class RectangleRightMethod(Method, BaseIntegrationMethod):
     def _calculate_integral(self, f: Callable, a: float, b: float, n: int) -> float:
         h = (b - a) / n
+    
+        self._check_value(f(a)); self._check_value(f(b))
+
         total = 0.0
         for i in range(1, n + 1):
             y = f(a + i * h)
@@ -22,7 +25,7 @@ class RectangleRightMethod(Method, BaseIntegrationMethod):
             while iterations < max_iter:
                 n *= 2
                 i_curr = self._calculate_integral(f, a, b, n)
-                if abs(i_curr - i_prev) <= eps: # k=1
+                if abs(i_curr - i_prev) <= eps:
                     return Callback(result=Result(i_curr, n))
                 i_prev, iterations = i_curr, iterations + 1
             return Callback(result=Result(i_curr, n), error="Точность не достигнута")
