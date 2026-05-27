@@ -1,0 +1,228 @@
+import java.security.MessageDigest
+
+plugins {
+    id 'java'
+    id 'war'
+}
+
+def projVersion = project.property('project.version').toString()
+def mainClassVal = project.property('main.class').toString()
+def classesDirPath = project.property('dir.build.classes').toString()
+def docsDirPath = project.property('dir.build.docs').toString()
+
+version = projVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'jakarta.enterprise:jakarta.enterprise.cdi-api:4.0.1'
+    compileOnly 'jakarta.validation:jakarta.validation-api:3.0.2'
+    compileOnly 'jakarta.ejb:jakarta.ejb-api:4.0.1'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    compileOnly 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+    compileOnly 'jakarta.platform:jakarta.jakartaee-web-api:9.0.0'
+    compileOnly 'jakarta.json:jakarta.json-api:2.1.1'
+    compileOnly 'jakarta.json.bind:jakarta.json.bind-api:3.0.0'
+
+    implementation 'com.vladsch.flexmark:flexmark-all:0.64.8'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'org.hibernate:hibernate-core:6.2.6.Final'
+
+    compileOnly 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
+    testCompileOnly 'org.projectlombok:lombok:1.18.42'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+sourceSets {
+    main {
+        java {
+            def mainJavaDir = providers.gradleProperty('dir.src.java').getOrElse('src/main/java')
+            srcDirs = [file(mainJavaDir)]
+        }
+        resources {
+            def mainResDir = providers.gradleProperty('dir.src.resources').getOrElse('src/main/resources')
+            srcDirs = [file(mainResDir)]
+        }
+    }
+    test {
+        java {
+            def testJavaDir = providers.gradleProperty('dir.src.tests').getOrElse('src/test/java')
+            srcDirs = [file(testJavaDir)]
+        }
+        resources {srcDirs = [file("src/test/resources")] }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javadoc {
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+def calculateHash = { File file, String algorithm ->
+    if (!file.exists()) return ""
+    def digest = MessageDigest.getInstance(algorithm)
+    file.eachByte(4096) { buffer, length ->
+        digest.update(buffer, 0, length)
+    }
+    return digest.digest().encodeHex().toString()
+}
+
+tasks.named("jar") {
+    manifest {
+        def attributesMap = [
+            'Manifest-Version'      : '1.0',
+            'Main-Class'            : mainClassVal,
+            'Implementation-Version': projVersion
+        ]
+
+        def hashFile = layout.buildDirectory.file("tmp/extended-manifest.properties").get().asFile
+        if (hashFile.exists()) {
+            def props = new Properties()
+            hashFile.withInputStream { props.load(it) }
+            
+            props.each { key, value ->
+                attributesMap[key.toString()] = value.toString()
+            }
+        }
+
+        attributes(attributesMap)
+    }
+    
+    def docsDirFile = file(docsDirPath)
+    from(docsDirFile) {
+        into 'docs/javadoc'
+        includeEmptyDirs = false
+    }
+}
+
+tasks.register("compile") {
+    dependsOn tasks.named('compileJava')
+    group = "build"
+    description = "Компиляция исходных кодов проекта."
+}
+
+tasks.register("buildProject") {
+    dependsOn 'compile', 'jar', 'war'
+    group = "build"
+    description = "Компиляция исходных кодов проекта через compile и их упаковка в jar-архив"
+}
+
+tasks.named('clean') {
+    group = 'build'
+    doLast {
+        println "Директория build очищена"
+    }
+}
+
+tasks.register("testProject") {
+    dependsOn buildProject
+    
+    group = "verification"
+    description = "Запуск junit-тестов проекта после предварительной сборки."
+    finalizedBy tasks.named('test')
+}
+
+tasks.register("doc") {
+    group = "documentation"
+    description = "Генерация javadoc и вычисление хэш-сумм файлов проекта для MANIFEST.MF."
+
+    dependsOn tasks.named('javadoc'), tasks.named('classes')
+
+    def targetClassesDir = file(classesDirPath)
+    def outputFileProvider = layout.buildDirectory.file("tmp/extended-manifest.properties")
+
+    doLast {
+        def props = new Properties()
+
+        if (targetClassesDir.exists()) {
+            targetClassesDir.eachFileRecurse { file ->
+                if (file.isFile()) {
+                    def relativePath = targetClassesDir.toPath().relativize(file.toPath()).toString()
+                    
+                    def noExtensionPath = relativePath.endsWith('.class') ? 
+                        relativePath.substring(0, relativePath.length() - 6) : relativePath
+                    
+                    def safeKeyPath = noExtensionPath.replace('$', '-').replace('/', '-').replace('.', '-')
+
+                    props.setProperty("MD5-${safeKeyPath}", calculateHash(file, "MD5"))
+                    props.setProperty("SHA-1-${safeKeyPath}", calculateHash(file, "SHA-1"))
+                }
+            }
+        }
+
+        def fileToWrite = outputFileProvider.get().asFile
+        fileToWrite.parentFile.mkdirs()
+        fileToWrite.withOutputStream { props.store(it, null) }
+    }
+    
+    finalizedBy tasks.named('jar')
+}
+
+tasks.register("diff") {
+    group = "vcs"
+    description = "Проверка изменений в git и автоматическое выполнение commit выбранных классов."
+    
+    def execOps = services.get(ExecOperations)
+    def trackedPaths = project.property('git.tracked.classes').toString().split(',').collect { it.trim() }
+
+    doLast {
+
+        def stdout = new ByteArrayOutputStream()
+        
+        execOps.exec {
+            commandLine 'git', 'status', '--porcelain', '--short'
+            standardOutput = stdout
+            ignoreExitValue = true
+        }
+        
+        def svnStatusResult = stdout.toString()
+        println "Текущий статус git:\n${svnStatusResult}"
+
+        def filesToCommit = []
+
+        svnStatusResult.eachLine { line ->
+            if (line.length() > 8) {
+                def statusPart = line.substring(0, 8)
+                def filePath = line.substring(8).trim()
+
+                if (statusPart.contains('M') || statusPart.contains('A') || statusPart.contains('D')) {
+                    trackedPaths.each { trackedPath ->
+                        if (filePath.startsWith(trackedPath)) {
+                            filesToCommit.add(filePath)
+                        }
+                    }
+                }
+            }
+        }
+
+        filesToCommit = filesToCommit.unique()
+
+        if (!filesToCommit.isEmpty()) {
+            println "Обнаружены изменения в отслеживаемых путях. Файлы для commit: ${filesToCommit}"
+            execOps.exec {
+                commandLine(['git', 'add'] + filesToCommit)
+            }
+            execOps.exec {
+                commandLine(['git', 'commit', '-m', 'Автоматический коммит из Gradle сценария сборки'])
+            }
+        } else {
+            println "Изменения в отслеживаемых классах/директориях не обнаружены. Commit не требуется."
+        }
+    }
+}
