@@ -1,0 +1,31 @@
+=== Instruction Memory (IMEM) ===
+0000 - 0x80000007 - JMP   7              ; Jump to entry point
+0001 - 0x02800000 - LDI   R10Register.R10, #0 ; Load 0
+0002 - 0x0828000C - ST    R10Register.R10, R12Register.SP ; Push to stack
+0003 - 0x02800001 - LDI   R10Register.R10, #1 ; Load 1
+0004 - 0x0828000C - ST    R10Register.R10, R12Register.SP ; Push to stack
+0005 - 0x02800002 - LDI   R10Register.R10, #2 ; Load 2
+0006 - 0x0828000C - ST    R10Register.R10, R12Register.SP ; Push to stack
+0007 - 0x04400002 - LD    R1Register.R1, 2
+0008 - 0x00810900 - LDI   R2Register.R2, #4000000
+0009 - 0x58048000 - CMP   R1Register.R1, R2Register.R2
+000A - 0x8C000018 - BGT   24
+000B - 0x00C00002 - LDI   R3Register.R3, #2
+000C - 0x5504C000 - MOD   R4Register.R4, R1Register.R1, R3Register.R3
+000D - 0x01400000 - LDI   R5Register.R5, #0
+000E - 0x58114000 - CMP   R4Register.R4, R5Register.R5
+000F - 0x88000013 - BNE   19
+0010 - 0x05800000 - LD    R6Register.R6, 0
+0011 - 0x45984000 - ADD   R6Register.R6, R6Register.R6, R1Register.R1
+0012 - 0x08180000 - ST    R6Register.R6, 0
+0013 - 0x05C00001 - LD    R7Register.R7, 1
+0014 - 0x461C4000 - ADD   R8Register.R8, R7Register.R7, R1Register.R1
+0015 - 0x08040001 - ST    R1Register.R1, 1
+0016 - 0x08200002 - ST    R8Register.R8, 2
+0017 - 0x80000007 - JMP   7
+0018 - 0xC4000000 - RET   
+
+=== Data Memory (DMEM) ===
+0000 - 0x00000000 - 0 ('.')
+0001 - 0x00000000 - 0 ('.')
+0002 - 0x00000000 - 0 ('.')
