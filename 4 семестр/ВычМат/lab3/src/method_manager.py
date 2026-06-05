@@ -10,11 +10,11 @@ from typing import Dict
 class MethodManager:
     def __init__(self):
         self.methods = {
-            "Метод левых прямоугольников": RectangleLeftMethod(),
-            "Метод правых прямоугольников": RectangleRightMethod(),
-            "Метод средних прямоугольников": RectangleMidMethod(),
-            "Метод трапеций": TrapezoidMethod(),
-            "Метод Симпсона": SimpsonMethod()
+            "Метод левых прямоугольников": RectangleLeftMethod(1),
+            "Метод правых прямоугольников": RectangleRightMethod(1),
+            "Метод средних прямоугольников": RectangleMidMethod(2),
+            "Метод трапеций": TrapezoidMethod(2),
+            "Метод Симпсона": SimpsonMethod(4)
         }
     
     def __len__(self):
