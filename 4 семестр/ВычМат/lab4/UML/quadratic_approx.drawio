@@ -1,0 +1,99 @@
+<mxfile host="65bd71144e">
+    <diagram id="poly2-approx" name="Polynomial-2">
+        <mxGraphModel dx="459710" dy="338626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="145" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Полином 2-й степени&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-458080" y="-337650" width="250" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="146" value="" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="147" target="149">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-457952.51" y="-337450" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="147" value="начало" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-458027.5" y="-337600" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="149" target="151">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" value="n, x_list, y_list" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="-458052.5" y="-337490" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="151" target="154">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" value="sum_x = 0&lt;div&gt;sum_y = 0&lt;div&gt;sum_x2 = 0&lt;/div&gt;&lt;div&gt;sum_x3 = 0&lt;/div&gt;&lt;div&gt;sum_x4 = 0&lt;/div&gt;&lt;div&gt;sum_xy = 0&lt;/div&gt;&lt;div&gt;sum_x2y = 0&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-458032.5" y="-337400" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="154" target="158">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="154" target="155">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" value="i=0, n" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="-458020" y="-337240" width="135" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="sum_x =&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;sum_x +&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: center;&quot;&gt;x_list&lt;sub&gt;i&lt;/sub&gt;&lt;/span&gt;&lt;div&gt;sum_y =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;sum_y +&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&amp;nbsp;y&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0); text-align: center;&quot;&gt;_list&lt;/span&gt;&lt;sub style=&quot;color: rgb(63, 63, 63); background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;i&lt;/sub&gt;&lt;/div&gt;&lt;div&gt;sum_x2 =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;sum_x2 +&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0); text-align: center;&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;color: rgb(63, 63, 63); background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;i&lt;/sub&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;sum_x3 =&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;sum_x3 +&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;color: rgb(63, 63, 63); background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;i&lt;/sub&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;&lt;sup style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;3&lt;/sup&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;sum_x4 = &lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;sum_x4 + &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; text-align: center;&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; text-align: center;&quot;&gt;i&lt;/sub&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; text-align: center;&quot;&gt;&lt;sup style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;4&lt;/sup&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;sum_xy =&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0); text-align: center;&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center;&quot;&gt;i&lt;/sub&gt;&amp;nbsp;*&amp;nbsp;&lt;span style=&quot;background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;y&lt;/span&gt;&lt;span style=&quot;background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center; color: rgb(0, 0, 0);&quot;&gt;_list&lt;/span&gt;&lt;sub style=&quot;background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center; color: rgb(63, 63, 63);&quot;&gt;i&lt;/sub&gt;&lt;/div&gt;&lt;div&gt;sum_x2y =&amp;nbsp;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; text-align: center; color: rgb(0, 0, 0);&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; text-align: center; color: rgb(63, 63, 63);&quot;&gt;i&lt;/sub&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; text-align: center; color: rgb(63, 63, 63);&quot;&gt;&lt;sup style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;2&lt;/sup&gt;&lt;/span&gt;&amp;nbsp;*&amp;nbsp;&lt;span style=&quot;background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;y&lt;/span&gt;&lt;span style=&quot;background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center; color: rgb(0, 0, 0);&quot;&gt;_list&lt;/span&gt;&lt;sub style=&quot;background-color: transparent; scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: center; color: rgb(63, 63, 63);&quot;&gt;i&lt;/sub&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="-458040" y="-337160" width="175" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="155" target="154">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-458065" y="-337080"/>
+                            <mxPoint x="-458065" y="-337215"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="157" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="158" target="161">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="158" value="A = [[sum_x4, sum_x3, sum_x2],&lt;div&gt;&amp;nbsp; &amp;nbsp;  [sum_x3, sum_x2, sum_x],&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;  [sum_x2, sum_x, n]]&lt;/div&gt;&lt;div&gt;B = [sum_x2y, sum_xy, sum_y]&lt;/div&gt;&lt;div&gt;a2, a1, a0 = solve_linear_system(A, B)&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;spacingLeft=8;" vertex="1" parent="1">
+                    <mxGeometry x="-457820" y="-337265" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="159" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="161" target="162">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="160" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="161" target="165">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-457540" y="-337065"/>
+                            <mxPoint x="-457540" y="-336880"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="161" value="i=0, n" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="-457767.5" y="-337090" width="135" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="162" value="phi_i = a2 *&amp;nbsp;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;i&lt;/sub&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;&lt;sup style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;2&lt;/sup&gt;&lt;/span&gt;&amp;nbsp;+ a1 *&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;x_list&lt;/span&gt;&lt;sub style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;i&lt;/sub&gt;&amp;nbsp;+ a0" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-457805" y="-337010" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="163" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="162" target="161">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-457815" y="-336980"/>
+                            <mxPoint x="-457815" y="-337065"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="164" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="165" target="167">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="S, delta, R2 = calculate_metrics(phi, y_list, n)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-457830" y="-336910" width="260" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="167" target="168">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="167" value="Вывод:&lt;div&gt;[a2, a1, a0], phi, S, delta, R2&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="-457810" y="-336815" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="168" value="конец" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-457540" y="-336820" width="135" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
