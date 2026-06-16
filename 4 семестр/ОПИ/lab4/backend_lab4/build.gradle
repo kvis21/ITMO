@@ -1,0 +1,127 @@
+import java.security.MessageDigest
+
+plugins {
+    id 'java'
+    id 'war'
+}
+
+def projVersion = project.property('project.version').toString()
+def mainClassVal = project.property('main.class').toString()
+def classesDirPath = project.property('dir.build.classes').toString()
+def docsDirPath = project.property('dir.build.docs').toString()
+
+version = projVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'jakarta.enterprise:jakarta.enterprise.cdi-api:4.0.1'
+    compileOnly 'jakarta.validation:jakarta.validation-api:3.0.2'
+    compileOnly 'jakarta.ejb:jakarta.ejb-api:4.0.1'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    compileOnly 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+    compileOnly 'jakarta.platform:jakarta.jakartaee-web-api:9.0.0'
+    compileOnly 'jakarta.json:jakarta.json-api:2.1.1'
+    compileOnly 'jakarta.json.bind:jakarta.json.bind-api:3.0.0'
+
+    implementation 'com.vladsch.flexmark:flexmark-all:0.64.8'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'org.hibernate:hibernate-core:6.2.6.Final'
+
+    compileOnly 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
+    testCompileOnly 'org.projectlombok:lombok:1.18.42'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+sourceSets {
+    main {
+        java {
+            def mainJavaDir = providers.gradleProperty('dir.src.java').getOrElse('src/main/java')
+            srcDirs = [file(mainJavaDir)]
+        }
+        resources {
+            def mainResDir = providers.gradleProperty('dir.src.resources').getOrElse('src/main/resources')
+            srcDirs = [file(mainResDir)]
+        }
+    }
+    test {
+        java {
+            def testJavaDir = providers.gradleProperty('dir.src.tests').getOrElse('src/test/java')
+            srcDirs = [file(testJavaDir)]
+        }
+        resources {srcDirs = [file("src/test/resources")] }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javadoc {
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+def calculateHash = { File file, String algorithm ->
+    if (!file.exists()) return ""
+    def digest = MessageDigest.getInstance(algorithm)
+    file.eachByte(4096) { buffer, length ->
+        digest.update(buffer, 0, length)
+    }
+    return digest.digest().encodeHex().toString()
+}
+
+tasks.named("jar") {
+    manifest {
+        def attributesMap = [
+            'Manifest-Version'      : '1.0',
+            'Main-Class'            : mainClassVal,
+            'Implementation-Version': projVersion
+        ]
+
+        attributes(attributesMap)
+    }
+}
+
+tasks.register("compile") {
+    dependsOn tasks.named('compileJava')
+    group = "build"
+    description = "Компиляция исходных кодов проекта."
+}
+
+war {
+    archiveFileName = 'app.war'
+}
+
+tasks.register("buildProject") {
+    dependsOn 'compile', 'jar', 'war'
+    group = "build"
+    description = "Компиляция исходных кодов проекта через compile и их упаковка в jar-архив"
+}
+
+tasks.named('clean') {
+    group = 'build'
+    doLast {
+        println "Директория build очищена"
+    }
+}
+
+tasks.register("testProject") {
+    dependsOn buildProject
+    
+    group = "verification"
+    description = "Запуск junit-тестов проекта после предварительной сборки."
+    finalizedBy tasks.named('test')
+}
