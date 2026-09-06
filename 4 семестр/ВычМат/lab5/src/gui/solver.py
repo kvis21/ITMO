@@ -1,5 +1,3 @@
-# gui/solver.py
-import math
 from typing import List
 
 import streamlit as st
@@ -44,7 +42,7 @@ def _render_table_dataframe(x_list: List[float], y_list: List[float], kind: str)
         data.append(row)
 
     st.markdown(title)
-    st.caption("Треугольная таблица разностей. Пустые ячейки соответствуют несуществующим разностям.")
+    st.caption("Треугольная таблица разностей.")
     st.dataframe(data, use_container_width=True, hide_index=True)
 
 
@@ -52,7 +50,7 @@ def _render_finite_table(x_list, y_list):
     ok, h = check_equidistant(x_list)
     if ok:
         _render_table_dataframe(x_list, y_list, "finite")
-        st.caption(f"Шаг интерполяции h = {h} — узлы равноотстоящие, конечные разности применимы.")
+        st.caption(f"Шаг интерполяции h = {round(h, 6)}")
     else:
         st.warning("Узлы не являются равноотстоящими: конечные разности и формулы Ньютона/Гаусса "
                    "с конечными разностями неприменимы для этих данных.")
@@ -77,7 +75,7 @@ def run_gui():
     x_list, y_list, n = render_input_section()
 
     if x_list is None or n == 0:
-        st.info("Ожидание корректного набора данных (минимум 2 точки) на боковой панели...")
+        st.info("Ожидание корректного набора данных (минимум 2 точки) на боковой панели")
         return
 
     errors = validate_data(x_list, y_list)

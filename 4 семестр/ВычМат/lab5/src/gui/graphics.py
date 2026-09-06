@@ -8,7 +8,7 @@ from data import InterpolationResult
 
 COLORS = {
     "Лагранж": "blue",
-    "Ньютон (конечные разности)": "red",
+    "Ньютон (конечные разности)": "yellow",
     "Ньютон (разделенные разности)": "green",
     "Гаусс": "orange",
     "Стирлинг": "purple",
@@ -28,10 +28,11 @@ def _eval_on_grid(func: Callable, x_list: List[float], y_list: List[float],
 
 def _add_curve(fig, func: Callable, x_list, y_list, grid, name: str):
     values = _eval_on_grid(func, x_list, y_list, grid)
-    fig.add_trace(go.Scatter(
-        x=grid, y=values, mode="lines", name=name,
-        line=dict(color=COLORS.get(name, "gray"), width=2),
-    ))
+    if None not in values:
+        fig.add_trace(go.Scatter(
+            x=grid, y=values, mode="lines", name=name,
+            line=dict(color=COLORS.get(name, "gray"), width=2),
+        ))
 
 
 def render_plots(x_list: List[float], y_list: List[float],
@@ -45,13 +46,14 @@ def render_plots(x_list: List[float], y_list: List[float],
     fig.add_trace(go.Scatter(
         x=x_list, y=y_list, mode="markers",
         name="Узлы интерполяции",
-        marker=dict(size=9, color="black"),
+        marker=dict(size=9, color="red"),
     ))
 
     _add_curve(fig, methods.lagrange_interpolation, x_list, y_list, grid, "Лагранж")
     _add_curve(fig, methods.newton_finite, x_list, y_list, grid, "Ньютон (конечные разности)")
     _add_curve(fig, methods.newton_divided, x_list, y_list, grid, "Ньютон (разделенные разности)")
-    _add_curve(fig, methods.gauss, x_list, y_list, grid, "Гаусс")
+    _add_curve(fig, methods.gauss_first, x_list, y_list, grid, "Гаусс (1-ая формула)")
+    _add_curve(fig, methods.gauss_second, x_list, y_list, grid, "Гаусс (2-ая формула)")
     _add_curve(fig, methods.stirling, x_list, y_list, grid, "Стирлинг")
     _add_curve(fig, methods.bessel, x_list, y_list, grid, "Бессель")
 

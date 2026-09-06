@@ -11,11 +11,11 @@ from utils import (build_divided_difference_table, build_finite_difference_table
 # ---------------------------------------------------------------------------
 
 def _nearest_index(x: float, x_list: List[float]) -> int:
-    """Возвращает индекс узла, ближайшего к x."""
+    
     return min(range(len(x_list)), key=lambda i: abs(x_list[i] - x))
 
 def _left_index(x: float, x_list: List[float]) -> int:
-    """Возвращает индекс наибольшего узла, не превосходящего x."""
+    
     idx = 0
     for i in range(len(x_list)):
         if x_list[i] <= x:
@@ -23,29 +23,18 @@ def _left_index(x: float, x_list: List[float]) -> int:
     return idx
 
 def _right_index(x: float, x_list: List[float]) -> int:
-    """Возвращает индекс наименьшего узла, не меньшего x."""
+    
     for i in range(len(x_list)):
         if x_list[i] >= x:
             return i
     return len(x_list) - 1
-
-def _falling_product(t: float, start: int, end: int) -> float:
-    """Произведение (t - r) для r от start до end включительно."""
-    prod = 1.0
-    for r in range(start, end + 1):
-        prod *= (t - r)
-    return prod
-
-def _in_range(table, k: int, i: int) -> bool:
-    """Проверяет, что элемент table[k][i] существует."""
-    return 0 <= k < len(table) and 0 <= i < len(table[k])
 
 # ---------------------------------------------------------------------------
 # Многочлен Лагранжа
 # ---------------------------------------------------------------------------
 
 def lagrange_interpolation(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Интерполяционный многочлен Лагранжа, построенный по всем узлам."""
+    
     name = "Многочлен Лагранжа"
     try:
         n = len(x_list)
@@ -65,10 +54,7 @@ def lagrange_interpolation(x: float, x_list: List[float], y_list: List[float]) -
 # ---------------------------------------------------------------------------
 
 def newton_divided_forward(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """
-    Первая интерполяционная формула Ньютона с разделенными разностями
-    (интерполирование вперед, от узла x0).
-    """
+    
     name = "Ньютон (разделенные разности), 1-я формула"
     try:
         table = build_divided_difference_table(x_list, y_list)
@@ -86,7 +72,6 @@ def newton_divided_forward(x: float, x_list: List[float], y_list: List[float]) -
 def newton_divided_backward(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
     """
     Вторая интерполяционная формула Ньютона с разделенными разностями
-    (интерполирование назад, от узла xn).
     """
     name = "Ньютон (разделенные разности), 2-я формула"
     try:
@@ -103,7 +88,7 @@ def newton_divided_backward(x: float, x_list: List[float], y_list: List[float]) 
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
 def newton_divided(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Ньютон с разделенными разностями: 1-я формула для левой половины отрезка, 2-я — для правой."""
+    
     name = "Ньютон (разделенные разности)"
     try:
         mid = (x_list[0] + x_list[-1]) / 2.0
@@ -118,10 +103,6 @@ def newton_divided(x: float, x_list: List[float], y_list: List[float]) -> Interp
 # ---------------------------------------------------------------------------
 
 def newton_finite_forward(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """
-    Первая интерполяционная формула Ньютона с конечными разностями
-    (интерполирование вперед). Используется для левой половины отрезка.
-    """
     name = "Ньютон (конечные разности), 1-я формула"
     try:
         ok, h = check_equidistant(x_list)
@@ -170,7 +151,7 @@ def newton_finite_backward(x: float, x_list: List[float], y_list: List[float]) -
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
 def newton_finite(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Ньютон с конечными разностями: 1-я формула для левой половины отрезка, 2-я — для правой."""
+    
     name = "Ньютон (конечные разности)"
     try:
         mid = (x_list[0] + x_list[-1]) / 2.0
@@ -183,69 +164,8 @@ def newton_finite(x: float, x_list: List[float], y_list: List[float]) -> Interpo
 # ---------------------------------------------------------------------------
 # Многочлен Гаусса (равноотстоящие узлы, интерполирование в середине таблицы)
 # ---------------------------------------------------------------------------
-
-def _gauss_first_value(x: float, x_list: List[float], y_list: List[float],
-                       table: List[List[float]], c: int) -> float:
-    """
-    Первая интерполяционная формула Гаусса с центральным узлом x[c].
-    Применяется для x > a (t >= 0).
-    """
-    n = len(x_list)
-    h = x_list[1] - x_list[0]
-    t = (x - x_list[c]) / h
-    value = y_list[c]
-    if _in_range(table, 1, c):
-        value += t * table[1][c]
-    m = 1
-    while True:
-        k_even = 2 * m
-        k_odd = 2 * m + 1
-        any_added = False
-        if _in_range(table, k_even, c - m):
-            factor = _falling_product(t, -(m - 1), m)
-            value += table[k_even][c - m] * factor / math.factorial(k_even)
-            any_added = True
-        if _in_range(table, k_odd, c - m):
-            factor = _falling_product(t, -m, m)
-            value += table[k_odd][c - m] * factor / math.factorial(k_odd)
-            any_added = True
-        if not any_added:
-            break
-        m += 1
-    return value
-
-def _gauss_second_value(x: float, x_list: List[float], y_list: List[float],
-                        table: List[List[float]], c: int) -> float:
-    """
-    Вторая интерполяционная формула Гаусса с центральным узлом x[c].
-    Применяется для x < a (t <= 0).
-    """
-    n = len(x_list)
-    h = x_list[1] - x_list[0]
-    t = (x - x_list[c]) / h
-    value = y_list[c]
-    if _in_range(table, 1, c - 1):
-        value += t * table[1][c - 1]
-    m = 1
-    while True:
-        k_even = 2 * m
-        k_odd = 2 * m + 1
-        any_added = False
-        if _in_range(table, k_even, c - m):
-            factor = _falling_product(t, -m, m - 1)
-            value += table[k_even][c - m] * factor / math.factorial(k_even)
-            any_added = True
-        if _in_range(table, k_odd, c - (m + 1)):
-            factor = _falling_product(t, -m, m)
-            value += table[k_odd][c - (m + 1)] * factor / math.factorial(k_odd)
-            any_added = True
-        if not any_added:
-            break
-        m += 1
-    return value
-
 def gauss_first(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Первая интерполяционная формула Гаусса (интерполирование вперед)."""
+    
     name = "Гаусс, 1-я формула"
     try:
         ok, h = check_equidistant(x_list)
@@ -257,14 +177,31 @@ def gauss_first(x: float, x_list: List[float], y_list: List[float]) -> Interpola
             c = n - 2
         t = (x - x_list[c]) / h
         table = build_finite_difference_table(y_list)
-        value = _gauss_first_value(x, x_list, y_list, table, c)
+        value = y_list[c]
+        i = c
+        if 0 <= i < n - 1:
+            value += t * table[1][i]
+        max_m = min(c, (n - 1) // 2, n - 1 - c)
+        for m in range(1, max_m + 1):
+            k_even = 2 * m
+            k_odd = 2 * m + 1
+            i = c - m
+            if 0 <= i < n - k_even:
+                factor = 1.0
+                for r in range(-(m - 1), m + 1):
+                    factor *= (t - r)
+                value += table[k_even][i] * factor / math.factorial(k_even)
+            if 0 <= i < n - k_odd:
+                factor = 1.0
+                for r in range(-m, m + 1):
+                    factor *= (t - r)
+                value += table[k_odd][i] * factor / math.factorial(k_odd)
         return InterpolationResult(name, x, value, "Успешно",
                                    formula=f"Центральный узел x[{c}] = {x_list[c]}, t = {t:.4f}")
     except Exception as e:
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
 def gauss_second(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Вторая интерполяционная формула Гаусса (интерполирование назад)."""
     name = "Гаусс, 2-я формула"
     try:
         ok, h = check_equidistant(x_list)
@@ -276,41 +213,43 @@ def gauss_second(x: float, x_list: List[float], y_list: List[float]) -> Interpol
             c = 1
         t = (x - x_list[c]) / h
         table = build_finite_difference_table(y_list)
-        value = _gauss_second_value(x, x_list, y_list, table, c)
+        value = y_list[c]
+        i = c - 1
+        if 0 <= i < n - 1:
+            value += t * table[1][i]
+        max_m = min(c, (n - 1) // 2, n - 1 - c)
+        for m in range(1, max_m + 1):
+            k_even = 2 * m
+            k_odd = 2 * m + 1
+            i_odd = c - m - 1
+            i = c - m
+            if 0 <= i < n - k_even:
+                factor = 1.0
+                for r in range(-m, m):
+                    factor *= (t - r)
+                value += table[k_even][i] * factor / math.factorial(k_even)
+            if 0 <= i_odd < n - k_odd:
+                factor = 1.0
+                for r in range(-m, m + 1):
+                    factor *= (t - r)
+                value += table[k_odd][i_odd] * factor / math.factorial(k_odd)
         return InterpolationResult(name, x, value, "Успешно",
                                    formula=f"Центральный узел x[{c}] = {x_list[c]}, t = {t:.4f}")
     except Exception as e:
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
 def gauss(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Гаусс: автоматический выбор первой или второй формулы относительно ближайшего узла."""
-    name = "Гаусс (автовыбор)"
+    name = "Гаусс"
     try:
-        ok, h = check_equidistant(x_list)
-        if not ok:
-            return InterpolationResult(name, x, None, "Неприменимо: узлы не равноотстоящие")
-        n = len(x_list)
-        c = _nearest_index(x, x_list)
-        t = (x - x_list[c]) / h
-        table = build_finite_difference_table(y_list)
-        if t >= 0:
-            c = min(c, n - 2)
-            value = _gauss_first_value(x, x_list, y_list, table, c)
-            note = f"1-я формула, центральный узел x[{c}] = {x_list[c]}"
-        else:
-            c = max(c, 1)
-            value = _gauss_second_value(x, x_list, y_list, table, c)
-            note = f"2-я формула, центральный узел x[{c}] = {x_list[c]}"
-        return InterpolationResult(name, x, value, "Успешно", formula=note)
+        mid = (x_list[0] + x_list[-1]) / 2.0
+        if x <= mid:
+            return gauss_first(x, x_list, y_list)
+        return gauss_second(x, x_list, y_list)
     except Exception as e:
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
-# ---------------------------------------------------------------------------
-# Схема Стирлинга (необязательное задание, |t| <= 0.25)
-# ---------------------------------------------------------------------------
-
 def stirling(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Интерполяционная формула Стирлинга (интерполирование при малых |t| <= 0.25)."""
+    
     name = "Стирлинг"
     try:
         ok, h = check_equidistant(x_list)
@@ -324,42 +263,27 @@ def stirling(x: float, x_list: List[float], y_list: List[float]) -> Interpolatio
                                        formula=f"Ближайший узел x[{c}] = {x_list[c]}, t = {t:.4f}")
         table = build_finite_difference_table(y_list)
         value = y_list[c]
-        if _in_range(table, 1, c - 1) and _in_range(table, 1, c):
+        if 0 <= c - 1  and c < n - 1:
             value += t * (table[1][c - 1] + table[1][c]) / 2.0
-        if _in_range(table, 2, c - 1):
+        if 0 <= c - 1 < n - 2:
             value += t * t / 2.0 * table[2][c - 1]
-        m = 1
-        while True:
+        max_m = min(c - 1, n - 2 - c)
+        for m in range(1, max_m + 1):
             k_odd = 2 * m + 1
             k_even = 2 * m + 2
-            any_added = False
-            if _in_range(table, k_odd, c - m - 1) and _in_range(table, k_odd, c - m):
-                prod = 1.0
-                for r in range(1, m + 1):
-                    prod *= (t * t - r * r)
-                factor = t * prod / math.factorial(k_odd)
-                value += factor * (table[k_odd][c - m - 1] + table[k_odd][c - m]) / 2.0
-                any_added = True
-            if _in_range(table, k_even, c - m - 1):
-                prod = 1.0
-                for r in range(1, m + 1):
-                    prod *= (t * t - r * r)
-                value += table[k_even][c - m - 1] * t * t * prod / math.factorial(k_even)
-                any_added = True
-            if not any_added:
-                break
-            m += 1
+            prod = 1.0
+            for r in range(1, m + 1):
+                prod *= (t * t - r * r)
+            factor = t * prod / math.factorial(k_odd)
+            value += factor * (table[k_odd][c - m - 1] + table[k_odd][c - m]) / 2.0
+            value += table[k_even][c - m - 1] * t * t * prod / math.factorial(k_even)
         return InterpolationResult(name, x, value, "Успешно",
                                    formula=f"Центральный узел x[{c}] = {x_list[c]}, t = {t:.4f}")
     except Exception as e:
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
-# ---------------------------------------------------------------------------
-# Схема Бесселя (необязательное задание, 0.25 <= t <= 0.75)
-# ---------------------------------------------------------------------------
-
 def bessel(x: float, x_list: List[float], y_list: List[float]) -> InterpolationResult:
-    """Интерполяционная формула Бесселя (интерполирование при 0.25 <= t <= 0.75)."""
+    
     name = "Бессель"
     try:
         ok, h = check_equidistant(x_list)
@@ -375,41 +299,26 @@ def bessel(x: float, x_list: List[float], y_list: List[float]) -> InterpolationR
                                        formula=f"Узел x[{c}] = {x_list[c]}, t = {t:.4f}")
         table = build_finite_difference_table(y_list)
         value = (y_list[c] + y_list[c + 1]) / 2.0
-        if _in_range(table, 1, c):
+        if 0 <= c < n - 1:
             value += (t - 0.5) * table[1][c]
-        m = 1
-        while True:
+        max_m = min(c, n - 2 - c)
+        for m in range(1, max_m + 1):
             k_even = 2 * m
             k_odd = 2 * m + 1
-            any_added = False
-            if _in_range(table, k_even, c - m) and _in_range(table, k_even, c - m + 1):
-                prod = 1.0
-                for r in range(1, m):
-                    prod *= (t + r) * (t - r - 1)
-                factor = t * (t - 1) * prod / math.factorial(k_even)
-                value += factor * (table[k_even][c - m] + table[k_even][c - m + 1]) / 2.0
-                any_added = True
-            if _in_range(table, k_odd, c - m):
-                prod = 1.0
-                for r in range(1, m):
-                    prod *= (t + r) * (t - r - 1)
-                factor = (t - 0.5) * t * (t - 1) * prod / math.factorial(k_odd)
-                value += table[k_odd][c - m] * factor
-                any_added = True
-            if not any_added:
-                break
-            m += 1
+            prod = 1.0
+            for r in range(1, m):
+                prod *= (t + r) * (t - r - 1)
+            factor = t * (t - 1) * prod / math.factorial(k_even)
+            value += factor * (table[k_even][c - m] + table[k_even][c - m + 1]) / 2.0
+            factor = (t - 0.5) * t * (t - 1) * prod / math.factorial(k_odd)
+            value += table[k_odd][c - m] * factor
         return InterpolationResult(name, x, value, "Успешно",
                                    formula=f"Узел x[{c}] = {x_list[c]}, t = {t:.4f}")
     except Exception as e:
         return InterpolationResult(name, x, None, f"Ошибка: {e}")
 
-# ---------------------------------------------------------------------------
-# Список всех методов для таблицы сравнения
-# ---------------------------------------------------------------------------
-
 def all_methods() -> List[dict]:
-    """Возвращает описание всех методов для отображения в интерфейсе."""
+    
     return [
         {"name": "Многочлен Лагранжа", "func": lagrange_interpolation},
         {"name": "Ньютон (разделенные разности), 1-я формула", "func": newton_divided_forward},

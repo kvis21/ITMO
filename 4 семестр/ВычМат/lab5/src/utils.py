@@ -1,11 +1,7 @@
-# utils.py
 from typing import List, Optional, Tuple
 
 def build_finite_difference_table(y_list: List[float]) -> List[List[float]]:
-    """
-    Строит таблицу конечных разностей (треугольную).
-    Возвращает список строк: table[k][i] = Δ^k y_i, i = 0..n-k.
-    """
+    """Строит таблицу конечных разностей"""
     table = [list(y_list)]
     prev = table[0]
     while len(prev) > 1:
@@ -15,10 +11,7 @@ def build_finite_difference_table(y_list: List[float]) -> List[List[float]]:
     return table
 
 def build_divided_difference_table(x_list: List[float], y_list: List[float]) -> List[List[float]]:
-    """
-    Строит таблицу разделенных разностей (треугольную).
-    Возвращает список строк: table[k][i] = f[x_i, x_{i+1}, ..., x_{i+k}].
-    """
+    """Строит таблицу разделенных разностей"""
     n = len(x_list)
     table = [[float(y) for y in y_list]]
     prev = table[0]
@@ -31,10 +24,7 @@ def build_divided_difference_table(x_list: List[float], y_list: List[float]) -> 
     return table
 
 def check_equidistant(x_list: List[float], eps: float = 1e-9) -> Tuple[bool, Optional[float]]:
-    """
-    Проверяет, являются ли узлы равноотстоящими.
-    Возвращает (True, h), если узлы равномерны, иначе (False, None).
-    """
+
     if len(x_list) < 2:
         return False, None
     h = x_list[1] - x_list[0]

@@ -17,7 +17,7 @@ VARIANT10_Y = [3.7587, 4.1861, 4.9218, 5.3487, 5.9275, 6.4193, 7.0839]
 
 
 def _parse_numbers(text: str) -> List[float]:
-    """Разбирает строку чисел, разделенных пробелами (допускается запятая как разделитель)."""
+    """Разбирает строку чисел, разделенных пробелами"""
     return [float(v.replace(",", ".")) for v in text.split()]
 
 
@@ -31,7 +31,7 @@ def _parse_file_lines(lines: List[str]):
 
 
 def render_input_section() -> Tuple[Optional[List[float]], Optional[List[float]], int]:
-    """Отрисовывает панель ввода данных. Возвращает (x, y, n) или (None, None, 0)."""
+    """Отрисовывает панель ввода данных"""
     st.sidebar.header("Входные данные")
 
     input_type = st.sidebar.selectbox(
@@ -42,7 +42,6 @@ def render_input_section() -> Tuple[Optional[List[float]], Optional[List[float]]
     x_list, y_list = [], []
 
     if input_type == "Пример":
-        st.sidebar.success("Загружена таблица варианта 10 (табл. 1.5).")
         x_list = list(VARIANT10_X)
         y_list = list(VARIANT10_Y)
         st.sidebar.caption("X1 = 2.355, X2 = 2.254")
@@ -63,7 +62,7 @@ def render_input_section() -> Tuple[Optional[List[float]], Optional[List[float]]
     elif input_type == "Из файла":
         st.sidebar.subheader("Загрузка данных из файла")
         st.sidebar.caption("Формат: 1 строка - X, 2 строка - Y")
-        uploaded_file = st.sidebar.file_uploader("Выберите .txt файл", type=["txt"])
+        uploaded_file = st.sidebar.file_uploader("Выберите файл")
         if uploaded_file is not None:
             try:
                 lines = uploaded_file.read().decode("utf-8").splitlines()
